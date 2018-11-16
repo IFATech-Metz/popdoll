@@ -1,0 +1,4 @@
+ID:goku
+TITRE:Goku
+CAT:Dragon Ball Z
+DESC: Goku est le célèbre héros des mangas Dragon Ball et Dragon Ball Z.
