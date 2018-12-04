@@ -1,130 +1,279 @@
 header
 {
-padding-bottom: 80px;
-padding-top: 80px;
+	padding-bottom: 80px;
+	padding-top: 80px;
+	position: relative;
 }
 
 .imgpop:hover
 {
-  transform: scale(1.5);
+	transform: scale(1.5);
 }
 
 body
 {
-  font-family: "Verdana", "Genava",sans-serif;
-  text-align: center;
-  background-image: url(./fond/funkoBlack.jpg);
-  background-attachment: fixed;
+	font-family: "Verdana", "Genava",sans-serif;
+	text-align: center;
+	background-image: url(./fond/funkoBlack.jpg);
+	background-attachment: fixed;
+	position: relative;
+}
+
+nav
+{
+	z-index: 666;
+	position: absolute;
 }
 
 img
 {
-  border-color: #012765;
-  border-radius: 5px;
+	border-color: #012765;
+	border-radius: 5px;
 }
 
 table
 {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+	position: absolute;
+	z-index: -1;
+	padding-top: 25px;
+}
+
+form
+{
+	color: #012765;
+	background-color: rgba(207, 222, 0, 0.8);
+	font-size: 25px;
+	text-decoration: none;
+	font-family: "Guy";
+	font-weight: bold;
+	padding: 50px;
+	max-width: 60%;
+	margin: auto;
+	border: 2px solid ;
+	border-color: #012765;
+	border-radius: 5px;
+	border-width: medium;
+	border-radius: 25px;
+	display: inline-block;
+	position: relative;
+}
+
+button
+{
+	background-color: #012765;
+	padding: 5px;
 }
 
 .tab
 {
-  border-color: #012765;
-  border:3;
+	border-color: #012765;
+	border:3;
 }
 
 @font-face
 {
 	font-family: "Guy";
-		src : url("./font/guy.ttf");
+	src : url("./font/guy.ttf");
+}
+
+#ajout
+{
+	display: inline-block;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding: 15px;
+	border-radius: 5px;
+	position: relative;
+	background-color: transparent;
+	font-size: 25px;
+}
+
+#ajoutpop
+{
+	display: inline-block;
+	padding: 20px;
+	border-radius: 25px;
+}
+
+#ajoutpop2
+{
+	display: inline-block;
+	padding: 20px;
+	border-radius: 25px;
+	background-color: rgba(207, 222, 0, 0.8);
+	font-family: 'Guy';
+	font-size: 25px;
+	color: #012765;
+	border: 2px solid #012765;
+}
+
+#red
+{
+	color: red;
+	font-size:25px;
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+#entre
+{
+	display: inline-block;
+}
+
+#suppr
+{
+	border: 0px;
+	background-color: #007cec;
+	color: #012765;
+	text-decoration: none;
+	padding: 15px;
+	margin: 0px;
+	display: flex;
+	position: relative;
+	text-align: justify;
+	font-size: 0px;
+}
+
+#tdsuppr
+{
+	padding: 0px;
 }
 
 th
 {
-  color:#012765;
-  font-family: "Guy";
-  background-color: rgba(207, 222, 0, 0.8);
-  font-size: 2em;
-  font-weight: bold;
-  border: 1px solid ;
-  border-width: medium;
-  border-radius: 5px;
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
-  padding-left: 50px;
-  padding-right: 50px;
+	color:#012765;
+	font-family: "Guy";
+	background-color: rgba(207, 222, 0, 0.8);
+	font-size: 2em;
+	font-weight: bold;
+	border: 1px solid ;
+	border-width: medium;
+	border-radius: 5px;
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 td
 {
-  text-align: justify;
-  font-family: "Open sans";
-  border: 2px solid ;
-  border-color: #012765;
-  text-align: center;
-  vertical-align: middle;
-  color: #f2f2f2;
-  border-radius: 5px;
-  background-color: #007cec;
-  background-repeat: repeat;
-  background-size: auto;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-nav
-{
-  z-index: 1;
-  position: relative;
+	text-align: justify;
+	font-family: "Open sans";
+	border: 2px solid ;
+	border-color: #012765;
+	text-align: center;
+	vertical-align: middle;
+	color: #f2f2f2;
+	border-radius: 5px;
+	background-color: #007cec;
+	background-repeat: repeat;
+	background-size: auto;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 ul
 {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 li
 {
-    float: left;
+	float: left;
 }
 
 li ul
 {
-    display: none;
+	display: none;
 }
 
 li a
 {
-    color: #012765;
-    background-color:  rgba(207, 222, 0, 0.9);
-    padding: 20px;
-    display: block;
-    text-decoration: none;
-    font-family: "Guy";
-    font-weight: bold;
-    border: 2px solid ;
-    border-color: #012765;
-    border-radius: 5px;
-    border-width: medium;
+	color: #012765;
+	background-color:  rgba(207, 222, 0, 0.9);
+	padding: 20px;
+	display: block;
+	text-decoration: none;
+	font-family: "Guy";
+	font-weight: bold;
+	border: 2px solid ;
+	border-color: #012765;
+	border-radius: 5px;
+	border-width: medium;
 }
 
 li a:hover
 {
-    background-color: #007cec;
+	background-color: #007cec;
 }
 
 li:hover ul
 {
-    display: block;
+	display: block;
 }
 
 li li
 {
-    float: none;
-    margin-left: -40px;
+	float: none;
+	margin-left: -40px;
+}
+
+p
+{
+	font-size: 35px;
+	font-family: "Guy";
+	color: white;
+	text-decoration: underline;
+	border: 2px solid #012765;
+	color: #012765;
+	background-color: rgba(207, 222, 0, 0.9);
+}
+
+footer
+{
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	float: center;
+}
+
+#banniere
+{
+	max-width:90%;
+	height:auto;
+}
+
+@media screen and (max-width: 900px)
+{
+	table
+	{
+		margin: 0px;
+		padding: 0px;
+	}
+	th
+	{
+		font-size: 1em;
+	}
+	td
+	{
+		margin: 0px;
+		padding: 0px;
+		font-size: 1em;
+	}
+	nav
+	{
+		float: center;
+		position: sticky;
+		top: 0px;
+		margin: auto;
+	}
+	#banniere
+	{
+		max-width:100%;
+		height:auto;
+	}
 }
