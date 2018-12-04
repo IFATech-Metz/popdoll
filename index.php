@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css" />
     <link rel="shortcut icon" href="fond/popLogo.png" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Dolls</title>
   </head>
-  <body>
+ <body>
 
     <header>
-            <img src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" style="max-width:100%;height:auto;" />
+            <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
         <nav>
             <ul>
 
-                <li><a href="#Accueil">Accueil</a></li>
+                <li><a href="./index.php">Accueil</a></li>
 
                 <li><a href="#Liste">Liste</a>
                     <ul>
@@ -24,9 +24,9 @@
                 </li>
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
-                        <li><a href="#Créer">Créer</a></li>
+                        <li><a href="./creer.php">Créer</a></li>
                         <li><a href="#Modifier">Modifier</a></li>
-                        <li><a href="#Supprimer">Supprimer</a></li>
+                        <li><a href="./supprimer.php">Supprimer</a></li>
                     </ul>
                 </li>
 
@@ -76,6 +76,6 @@
     }
   ?>
 
-    </table>
-  </body>
+        </table>
+ </body>
 </html>
