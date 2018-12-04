@@ -10,8 +10,7 @@
 
     <header>
       
-        <img class='imgban' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls"
-        style='max-width:100%;height:auto;' />
+        <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
         
       <nav>
         <ul>
@@ -25,9 +24,9 @@
 
             <li><a href="#Gestion">Gestion</a>
                 <ul>
-                    <li><a href="./formaj.php">Créer</a></li>
-                    <li><a href="./edit.php">Modifier</a></li>
-                    <li><a href="./delete.php">Supprimer</a></li>
+                    <li><a href="./creer.php">Créer</a></li>
+                    <li><a href="#Modifier">Modifier</a></li>
+                    <li><a href="./supprimer.php">Supprimer</a></li>
                 </ul>
             </li>
         </ul>
@@ -42,7 +41,7 @@
         <th class='tab'>CATEGORIE</th>
         <th class='tab'>DESCRIPTION</th>
         <th class='tab'>IMAGE</th>
-        <th class='tab'>EDITION</th>
+        <th class='tab'>EDITER</th>
       </tr>
 
 <?php
@@ -76,8 +75,8 @@
             echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'>
                   <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].
                   ".jpg'height='50' align='center' border='2' ></a></td>
-                  <td><form action='' method=POST> 
-                  <input type='submit' name='". trim($tableau['ID']) . "' value='supprimer'>
+                  <td id='tdsuppr'><form id='suppr' action='' method=POST> 
+                  <input type='submit' name='". trim($tableau['ID']) . "' value='Supprimer'>
                   </form></td>";
           echo "</tr>";
           
@@ -89,14 +88,13 @@
             unlink($path_img."/".$tab_id.".jpg");
 
             echo '<script type="text/javascript">
-                document.location.href="./delete.php";
+                document.location.href="./supprimer.php";
                 </script>'; 
           }
         }
       }
       closedir($dir);
-    }
-    
+    }  
 ?>
 
     </table>

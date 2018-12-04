@@ -3,34 +3,34 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" href="logo/pop.png" />
+    <link rel="shortcut icon" href="fond/popLogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Dolls</title>
   </head>
-  <body>
+ <body>
 
     <header>
-      
-        <img class='imgban' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls"
-        style='max-width:100%;height:auto;' />
-        
+            <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
         <nav>
           <ul>
-              <li><a href="./index.php">Accueil</a></li>
-              <li><a href="#Liste">Liste</a>
-                  <ul>
-                      <li><a href="#Recherche">Recherche</a></li>
-                      <li><a href="#Catégories">Catégories</a></li>
-                  </ul>
-              </li>
 
-              <li><a href="#Gestion">Gestion</a>
-                  <ul>
-                      <li><a href="./formaj.php">Créer</a></li>
-                      <li><a href="./edit.php">Modifier</a></li>
-                      <li><a href="./delete.php">Supprimer</a></li>
-                  </ul>
-              </li>
-          </ul>
+                <li><a href="./index.php">Accueil</a></li>
+
+                <li><a href="#Liste">Liste</a>
+                    <ul>
+                        <li><a href="#Recherche">Recherche</a></li>
+                        <li><a href="#Catégorie">Catégorie</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Gestion">Gestion</a>
+                    <ul>
+                        <li><a href="./creer.php">Créer</a></li>
+                        <li><a href="#Modifier">Modifier</a></li>
+                        <li><a href="./supprimer.php">Supprimer</a></li>
+                    </ul>
+                </li>
+
+            </ul>
         </nav>
     
     </header>
@@ -88,6 +88,6 @@
     
   ?>
 
-    </table>
-  </body>
+        </table>
+ </body>
 </html>
