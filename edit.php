@@ -25,9 +25,9 @@
 
               <li><a href="#Gestion">Gestion</a>
                   <ul>
-                      <li><a href="./formaj.php">Créer</a></li>
+                      <li><a href="./creer.php">Créer</a></li>
                       <li><a href="./edit.php">Modifier</a></li>
-                      <li><a href="./delete.php">Supprimer</a></li>
+                      <li><a href="./supprimer.php">Supprimer</a></li>
                   </ul>
               </li>
           </ul>

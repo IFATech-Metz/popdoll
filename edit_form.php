@@ -25,9 +25,9 @@
 
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
-                        <li><a href="./formaj.php">Créer</a></li>
+                        <li><a href="./creer.php">Créer</a></li>
                         <li><a href="./edit.php">Modifier</a></li>
-                        <li><a href="./delete.php">Supprimer</a></li>
+                        <li><a href="./supprimer.php">Supprimer</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,8 +62,9 @@
                     }
 ?>                   
             <div>
-                    <p>AJOUTER UNE POP DOLL</p><br>
+                    <p>MODIFICATION DE LA DOLL </p><br>
                     <form class='ajout' action='' method='POST' enctype='multipart/form-data'>
+                        <input type='text' class='input' name='id' value="<?php echo $tableau['ID'] ?>" readonly><br><br> 
                         <input type='text' class='input' name='nom' value="<?php echo $tableau['TITRE'] ?>"><br><br>
                         <input type='text' class='input' name='cat' value="<?php echo $tableau['CAT'] ?>"><br><br>
                         <input type='text' class='input' name='descrip' value="<?php echo $tableau['DESC'] ?>"><br><br><br>

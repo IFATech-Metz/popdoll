@@ -86,6 +86,7 @@
           {
             unlink($path_txt."/".$tab_id.".txt");
             unlink($path_img."/".$tab_id.".jpg");
+            unlink("./".$tab_id.".jpg");
 
             echo '<script type="text/javascript">
                 document.location.href="./supprimer.php";
