@@ -10,6 +10,7 @@
   <body>
 
     <header>
+
             <img src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" style="max-width:100%;height:auto;" />
         <nav>
             <ul>
@@ -25,8 +26,8 @@
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
                         <li><a href="formaj.php">Créer</a></li>
-                        <li><a href="modif.php">Modifier</a></li>
-                        <li><a href="supp.php">Supprimer</a></li>
+                        <li><a href="#Modifier">Modifier</a></li>
+                        <li><a href="#Supprimer">Supprimer</a></li>
                     </ul>
                 </li>
 
@@ -69,9 +70,11 @@
               echo"<td>".$value."</td>";
             }
           echo "<td><a target='_blank' href='".$path_img."/".$tableau["ID"].".jpg'><img class='imgpop' title='".$tableau["TITRE"]."' src='".$path_img."/".$tableau["ID"].".jpg' height='50' align='center' border='2' ></a></td>";
-          echo "</tr>";
+
+
+          }
         }
-      }
+      
       closedir($dir);
     }
   ?>
