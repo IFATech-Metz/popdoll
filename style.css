@@ -88,17 +88,35 @@ button
 	padding: 15px;
 	border-radius: 5px;
 	position: relative;
+	background-color: transparent;
+	font-size: 25px;
+}
+
+#ajoutpop
+{
+	display: inline-block;
+	padding: 20px;
+	border-radius: 25px;
+}
+
+#ajoutpop2
+{
+	display: inline-block;
+	padding: 20px;
+	border-radius: 25px;
+	background-color: rgba(207, 222, 0, 0.8);
+	font-family: 'Guy';
+	font-size: 25px;
+	color: #012765;
+	border: 2px solid #012765;
 }
 
 #red
 {
 	color: red;
-	font-size: 25px;
-	text-decoration: none;
-	margin-left: 40%;
-	margin-right: 40%;
-	padding: 15px;
-	border-radius: 5px;
+	font-size:25px;
+	background-color: transparent;
+	text-decoration: underline;
 }
 
 #entre
@@ -108,17 +126,21 @@ button
 
 #suppr
 {
-	padding: 0px;
-	margin: 0px;
 	border: 0px;
-	background-color: rgba(207, 222, 0, 0.8);
+	background-color: #007cec;
 	color: #012765;
 	text-decoration: none;
-	font-weight: bold;
-	padding: 0px;
+	padding: 15px;
 	margin: 0px;
-	display: inline-block;
+	display: flex;
 	position: relative;
+	text-align: justify;
+	font-size: 0px;
+}
+
+#tdsuppr
+{
+	padding: 0px;
 }
 
 th
