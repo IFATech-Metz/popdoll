@@ -16,16 +16,18 @@
 
                 <li><a href="./index.php">Accueil</a></li>
 
-                <li><a href="#Liste">Liste</a>
-                    <ul>
-                        <li><a href="#Recherche">Recherche</a></li>
-                        <li><a href="#Catégorie">Catégorie</a></li>
+            <li><a href="#Liste">Trier</a>
+                <ul>
+                    <li><a href="#Recherche">Par Titres</a></li>
+                    <li><a href="#Catégories">Par Catégories</a></li>
                     </ul>
                 </li>
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
                         <li><a href="./creer.php">Créer</a></li>
-                        <li><a href="./edit.php">Modifier</a></li>
+
+                        <li><a href="./modifier.php">Modifier</a></li>
+
                         <li><a href="./supprimer.php">Supprimer</a></li>
                     </ul>
                 </li>
@@ -43,7 +45,7 @@
         <th class='tab'>TITRE</th>
         <th class='tab'>CATEGORIE</th>
         <th class='tab'>DESCRIPTION</th>
-        <th class='tab'>IMAGE</th>
+        <th class='tab'>DETAILS</th>
       </tr>
 
   <?php
@@ -71,11 +73,15 @@
             {
               echo"<td>".$value."</td>";
             }
-            
-            echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'>
-                  <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].
-                  ".jpg'height='50' align='center' border='2' ></a></td>
-                  </td>";
+
+          echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
+
+                    <button class='boutonSuppr' type='submit' name='".trim($tableau["ID"])."'>
+                      <img class='imgpop' src='".$path_img."/".trim($tableau["ID"]).".jpg' height='50' align='center' border='2' >
+                    </button>
+
+                    </form></td>";
+
           echo "</tr>";
           
 

@@ -12,27 +12,25 @@
       
         <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls" />
         
-      <nav>
-        <ul>
-            <li><a href="./index.php">Accueil</a></li>
+        <nav>
+          <ul>
+              <li><a href="./index.php">Accueil</a></li>
             <li><a href="#Liste">Trier</a>
                 <ul>
                     <li><a href="#Recherche">Par Titres</a></li>
                     <li><a href="#Catégories">Par Catégories</a></li>
-                </ul>
-            </li>
+                  </ul>
+              </li>
 
-            <li><a href="#Gestion">Gestion</a>
-                <ul>
-                    <li><a href="./creer.php">Créer</a></li>
-
-                    <li><a href="./modifier.php">Modifier</a></li>
-
-                    <li><a href="./supprimer.php">Supprimer</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+              <li><a href="#Gestion">Gestion</a>
+                  <ul>
+                      <li><a href="./creer.php">Créer</a></li>
+                      <li><a href="./edit_form.php">Modifier</a></li>
+                      <li><a href="./supprimer.php">Supprimer</a></li>
+                  </ul>
+              </li>
+          </ul>
+        </nav>
     
     </header>
 
@@ -81,27 +79,16 @@
                     </button>
 
                     </form></td>
-                    
-                  <td id='tdsuppr'><form id='suppr' action='' method=POST> 
-                  <input class='boutonSuppr' type='submit' name='". trim($tableau['ID']) . "' value='Supprimer !'>
+                  <td id='tdsuppr'><form id='suppr' action='modifier_form.php' method=POST> 
+                  <input type='submit' class='boutonSuppr' name='". trim($tableau['ID']) . "' value='Modifier !'>
                   </form></td>";
-          echo "</tr>";
+            echo "</tr>";
           
-          $tab_id = trim($tableau['ID']);
-
-          if (isset($_POST["$tab_id"])) 
-          {
-            unlink($path_txt."/".$tab_id.".txt");
-            unlink($path_img."/".$tab_id.".jpg");
-
-            echo '<script type="text/javascript">
-                document.location.href="./supprimer.php";
-                </script>'; 
-          }
         }
       }
       closedir($dir);
-    }  
+    }
+    
 ?>
 
     </table>
