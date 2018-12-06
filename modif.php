@@ -26,7 +26,7 @@
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
                         <li><a href="formaj.php">Créer</a></li>
-                        <li><a href="#Modifier">Modifier</a></li>
+                        <li><a href="modif.php">Modifier</a></li>
                         <li><a href="#Supprimer">Supprimer</a></li>
                     </ul>
                 </li>
@@ -70,7 +70,7 @@
               echo"<td>".$value."</td>";
             }
           echo "<td><a target='_blank' href='".$path_img."/".$tableau["ID"].".jpg'><img class='imgpop' title='".$tableau["TITRE"]."' src='".$path_img."/".$tableau["ID"].".jpg' height='50' align='center' border='2' ></a></td>";
-          echo "<td><form action='modif_form.php' method='get'><input type='submit' id='modif' name='".trim($tableau['ID'])."' value='modif'></form></td>";
+          echo "<td><form action='fiche.php' method='get'><input type='submit' id='modif' name='".trim($tableau['ID'])."' value='modif'></form></td>";
           echo "</tr>";
 
         }
