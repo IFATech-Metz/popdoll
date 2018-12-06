@@ -60,18 +60,31 @@
                         $parts = explode(":", $LigneDeTexte);
                         $tableau[$parts[0]] = $parts[1];
                     }
+                    $id_tableau = $tableau['ID'];
 ?>                   
             <div>
                     <p>MODIFICATION DE LA DOLL </p><br>
                     <form class='ajout' action='' method='POST' enctype='multipart/form-data'>
-                        <input type='text' class='input' name='id' value="<?php echo $tableau['ID'] ?>" readonly><br><br> 
-                        <input type='text' class='input' name='nom' value="<?php echo $tableau['TITRE'] ?>"><br><br>
-                        <input type='text' class='input' name='cat' value="<?php echo $tableau['CAT'] ?>"><br><br>
-                        <input type='text' class='input' name='descrip' value="<?php echo $tableau['DESC'] ?>"><br><br><br>
-                    
-                        <p>AJOUTER L'IMAGE DE LA POP DOLL:  </p><br>
+                        
+                        <div><?php echo $tableau['ID'] ?></div>
+
+                        <input type='text' class='input' name='id' value="<?php echo $tableau['ID'] ?>" hidden><br>
+
+                        TITRE : <br>
+                        <input type='text' class='input' name='titre' value="<?php echo $tableau['TITRE'] ?>" autofocus><br>
+
+                        CATEGORIE :<br>
+                        <input type='text' class='input' name='cat' value="<?php echo $tableau['CAT'] ?>"><br>
+
+                        DESCRIPTION :<br>
+                        <input type='text' class='input' name='desc' value="<?php echo $tableau['DESC'] ?>" style="width: 80%; height: 100px"><br><br><br>
+                       
+                        <p>IMAGE ACTUELLE : </p>
+                        <img src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='50'>
+
+                        <p>MODIFIER L'IMAGE  </p><br>
                         <p style='color:red'>UNIQUEMENT .jpg</p><br>
-                    
+
                         <input type='file' name='photo'>
                         <p><input type='submit'  name='valider' value='valider'>
                         </p>
@@ -83,6 +96,48 @@
             }
         }
     }
+
+    if (isset($_POST["valider"]))
+    {
+        $rp_txt="./txt/".$_POST['id'].".txt";
+        $zero="ID:".$_POST['id']."\r\n"."TITRE:".trim($_POST['titre'])."\r\n"."CAT:".trim($_POST['cat'])."\r\n"."DESC: ".trim($_POST['desc']);
+        $ecri=fopen($rp_txt,"w");
+
+        fwrite($ecri,"$zero");
+        fclose($ecri);
+
+        if (isset($_FILES['photo']['tmp_name']) && !empty($_FILES['photo']['tmp_name']))
+        {
+            $ig=$_POST['id'];
+            $ig=strtolower($ig).".jpg";
+            $taille = getimagesize($_FILES['photo']['tmp_name']);
+            $largeur = $taille[0];
+            $hauteur = $taille[1];
+            $largeur_miniature = 700;
+            $hauteur_miniature = $hauteur / $largeur * 700;
+            $im = imagecreatefromjpeg($_FILES['photo']['tmp_name']);
+            $im_miniature = imagecreatetruecolor($largeur_miniature, $hauteur_miniature);
+
+            imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
+            rename($_FILES["photo"]["tmp_name"],$ig);
+            imagejpeg($im_miniature, 'img/'.$ig, 90);
+
+            unlink("./".$_POST['id'].".jpg");
+
+        }
+        
+        echo '<script type="text/javascript">
+            document.location.href="./index.php";
+            </script>';
+
+        
+    }
+
+
+    
+
+        
+
 ?>
 
     

@@ -42,7 +42,7 @@
         <th class='tab'>CATEGORIE</th>
         <th class='tab'>DESCRIPTION</th>
         <th class='tab'>IMAGE</th>
-        <th class='tab'>EDITION</th>
+        <th class='tab'>EDITER</th>
       </tr>
 
 <?php
@@ -76,7 +76,7 @@
             echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'>
                   <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].
                   ".jpg'height='50' align='center' border='2' ></a></td>
-                  <td><form action='edit_form' method=POST> 
+                  <td><form action='edit_form.php' method=POST> 
                   <input type='submit' name='". trim($tableau['ID']) . "' value='modifier'>
                   </form></td>";
           echo "</tr>";

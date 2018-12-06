@@ -25,7 +25,7 @@
             <li><a href="#Gestion">Gestion</a>
                 <ul>
                     <li><a href="./creer.php">Créer</a></li>
-                    <li><a href="#Modifier">Modifier</a></li>
+                    <li><a href="./edit.php">Modifier</a></li>
                     <li><a href="./supprimer.php">Supprimer</a></li>
                 </ul>
             </li>
@@ -86,7 +86,6 @@
           {
             unlink($path_txt."/".$tab_id.".txt");
             unlink($path_img."/".$tab_id.".jpg");
-            unlink("./".$tab_id.".jpg");
 
             echo '<script type="text/javascript">
                 document.location.href="./supprimer.php";
