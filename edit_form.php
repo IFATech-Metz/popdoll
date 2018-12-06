@@ -80,7 +80,7 @@
                         <input type='text' class='input' name='desc' value="<?php echo $tableau['DESC'] ?>" style="width: 80%; height: 100px"><br><br><br>
                        
                         <p>IMAGE ACTUELLE : </p>
-                        <img src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='50'>
+                        <img src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='150'>
 
                         <p>MODIFIER L'IMAGE  </p><br>
                         <p style='color:red'>UNIQUEMENT .jpg</p><br>
@@ -122,22 +122,12 @@
             rename($_FILES["photo"]["tmp_name"],$ig);
             imagejpeg($im_miniature, 'img/'.$ig, 90);
 
-            unlink("./".$_POST['id'].".jpg");
-
         }
         
         echo '<script type="text/javascript">
             document.location.href="./index.php";
             </script>';
-
-        
     }
-
-
-    
-
-        
-
 ?>
 
     

@@ -72,10 +72,11 @@
               echo"<td>".$value."</td>";
             }
             
-            echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'>
-                  <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].
-                  ".jpg'height='50' align='center' border='2' ></a></td>
-                  </td>";
+            echo "<td>
+                  <form action='./file.php' method='POST'>
+                  <button type='submit' name='".trim($tableau["ID"])."'>
+                  <img src='".$path_img."/".trim($tableau["ID"]).".jpg' height='50' align='center' 
+                  border='2' ></button></form></td>";
           echo "</tr>";
           
 
