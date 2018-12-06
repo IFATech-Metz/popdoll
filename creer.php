@@ -18,10 +18,10 @@
     <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
-            <li><a href="#Liste">Liste</a>
+            <li><a href="#Liste">Trier</a>
                 <ul>
-                    <li><a href="#Recherche">Recherche</a></li>
-                    <li><a href="#Catégorie">Catégorie</a></li>
+                    <li><a href="#Recherche">Par Titres</a></li>
+                    <li><a href="#Catégories">Par Catégories</a></li>
                 </ul>
             </li>
             <li><a href="#Gestion">Gestion</a>
@@ -38,7 +38,7 @@
    <body>
 
        <div>
-           <p id='ajoutpop'>AJOUTER UNE POP DOLL: </p><br>
+           <p class='ajoutpop'>AJOUTER UNE POP DOLL: </p><br>
            <form class='ajout' action='' method='POST' enctype='multipart/form-data'>
 
             <div class='left'>TITRE:<br>
@@ -46,14 +46,14 @@
             <div class='right'>CATEGORIE:<br>
             <input class='textInput' type="text" name="cat" required value=""></div>
             <br><br><br>
-            <div style='font-size: 30px;'>DESCRIPTION:<br>
+            <div class='center';'>DESCRIPTION:<br>
             <input type="text" class='textInput' name="desc" required value="" style="width: 80%; height: 40px"></div>     
             <div id='ajout'>Ajouter l'image de la PopDoll:<br>
 	            <div id='red'>UNIQUEMENT .jpg !</div>
         	</div>
             <div class='bouton'>
-            <input type='file' name='photo' required value="">
-            <input type="submit" name="valider" value="Enregistrer !">
+            <input type='file' class='boutonSuppr' name='photo' required value="">
+            <input type="submit" class='boutonSuppr' name="valider" value="Enregistrer !">
             </div>
             </form>
        </div>
@@ -84,8 +84,7 @@
             imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
             rename($_FILES["photo"]["tmp_name"],$ig);
             imagejpeg($im_miniature, 'img/'.$ig, 90);
-
-/*           echo "<br><br><div id='ajoutpop2'>L'image " . $ig . " a bien été téléversée !</div>";*/
+            unlink("./".$id.".jpg");
 
             echo '<script type="text/javascript">
                 document.location.href="./index.php";

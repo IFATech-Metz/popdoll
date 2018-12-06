@@ -62,6 +62,13 @@ form
 	position: relative;
 }
 
+.clicForm
+{
+	font-size: 0px;
+	padding: 0px;
+	display: contents;
+}
+
 .bouton
 {
 	padding: 5px;
@@ -70,7 +77,26 @@ form
 	border-color: #012765;
 	border: 2px solid;
 	background-color: white;
+	display: block;
+}
 
+button
+{
+	cursor: pointer;
+}
+
+.boutonSuppr
+{
+	padding: 10px;
+	padding-bottom: 10px;
+	border-radius: 17px;
+	border-color: #012765;
+	color: #012765;
+	border: 2px solid;
+	background-color: rgba(207, 222, 0, 0.8);
+	font-family: "Guy";
+	cursor: pointer;
+	font-size: 1vw;
 }
 
 .tab
@@ -82,17 +108,22 @@ form
 .right
 {
 	float: right;
-/*	display: inline;*/
-	width: 50%;
+	display: inline-block;
 	font-size: 30px;
 }
 
 .left
 {
 	float: left;
-/*	display: inline;*/
-	width: 50%;
+	display: inline-block;
 	font-size: 30px;
+}
+
+.center
+{
+	float: none;
+	font-size: 30px;
+	display: inline-block;
 }
 
 .textInput
@@ -100,9 +131,50 @@ form
 	color: #012765;
 	font-family: 'Guy';
 	font-size: 25px;
+	font-weight: bold;
 	border: 2px solid #012765;
 	border-radius: 25px;
 	padding-left: 10px;
+	width: 80%;
+	margin-bottom: 20px;
+	font-family: "Verdana", "Genava",sans-serif;
+}
+
+.fiche
+{
+	border: 5px solid #012765;
+	border-radius: 25px;
+	background-color: rgba(207, 222, 0, 0.5);
+	display: block;
+	padding: 25px;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.imgFiche
+{
+	border: 3px solid #012765;
+	margin: 25px;
+	border-radius: 15px;
+}
+
+.categorie
+{
+	display: inline-block;
+	color: #012765;
+	font-family: "Guy";
+	font-size: 25px;
+}
+
+.description
+{
+	background-color: rgba(207, 222, 0, 0.8);
+	border-radius: 25px;
+	font-family: "Verdana", "Genava",sans-serif;
+	text-decoration: none;
+	font-size: 25px;
+	padding:18px;
+	text-align: center;
 }
 
 @font-face
@@ -123,7 +195,7 @@ form
 	font-size: 25px;
 }
 
-#ajoutpop
+.ajoutpop
 {
 	display: inline-block;
 	padding: 20px;
@@ -306,13 +378,67 @@ footer
 	{
 		max-width:100%;
 		height:auto;
+		margin-left: -40%;
+		margin-right: -40%;
+		background-size: contain;
 	}
 	.left
 	{
 		float: none;
+		margin: auto;
+		width: 80%;
 	}
 	.right
 	{
 		float: none;
+		margin: auto;
+		width: 80%;
+
+	}
+	#suppr
+	{
+	border: 0px;
+	background-color: #007cec;
+	color: #012765;
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+	display: flex;
+	position: relative;
+	}
+	.textInput
+	{
+		margin: 15px;
+	}
+	.fiche
+	{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	.boutonSuppr
+	{
+		font-size: 1.8vw;
+	}
+}
+
+@media screen and (max-width: 1010px)
+{
+		.left
+	{
+		float: none;
+		margin: auto;
+		width: 80%;
+	}
+	.right
+	{
+		float: none;
+		margin: auto;
+		width: 80%;
+
+	}
+		table
+	{
+		margin: 0px;
+		padding: 0px;
 	}
 }

@@ -15,10 +15,10 @@
       <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
-            <li><a href="#Liste">Liste</a>
+            <li><a href="#Liste">Trier</a>
                 <ul>
-                    <li><a href="#Recherche">Recherche</a></li>
-                    <li><a href="#Catégories">Catégories</a></li>
+                    <li><a href="#Recherche">Par Titres</a></li>
+                    <li><a href="#Catégories">Par Catégories</a></li>
                 </ul>
             </li>
 
@@ -40,7 +40,7 @@
         <th class='tab'>TITRE</th>
         <th class='tab'>CATEGORIE</th>
         <th class='tab'>DESCRIPTION</th>
-        <th class='tab'>IMAGE</th>
+        <th class='tab'>DETAILS</th>
         <th class='tab'>EDITER</th>
       </tr>
 
@@ -72,11 +72,16 @@
               echo"<td>".$value."</td>";
             }
             
-            echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'>
-                  <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].
-                  ".jpg'height='50' align='center' border='2' ></a></td>
+            echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
+
+                    <button class='boutonSuppr' type='submit' name='".trim($tableau["ID"])."'>
+                      <img src='".$path_img."/".trim($tableau["ID"]).".jpg' height='50' align='center' border='2' >
+                    </button>
+
+                    </form></td>
+                    
                   <td id='tdsuppr'><form id='suppr' action='' method=POST> 
-                  <input type='submit' name='". trim($tableau['ID']) . "' value='Supprimer'>
+                  <input class='boutonSuppr' type='submit' name='". trim($tableau['ID']) . "' value='Supprimer !'>
                   </form></td>";
           echo "</tr>";
           
