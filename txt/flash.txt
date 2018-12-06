@@ -1,4 +1,4 @@
 ID:flash
-TITRE:The Flash
+TITRE:the flash
 CAT:DC Comics
-DESC:The Flash est le héros de la série Flash, adaptée du comic américain de DC du même nom. Barry Allen est un jeune scientifique qui travaille pour la police de Central City.
+DESC: The Flash est le héros de la série Flash, adaptée du comic américain de DC du même nom. Barry Allen est un jeune scientifique qui travaille pour la police de Central City.
