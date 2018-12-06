@@ -27,7 +27,9 @@
             <li><a href="#Gestion">Gestion</a>
                 <ul>
                     <li><a href="./creer.php">Créer</a></li>
+
                     <li><a href="./modifier.php">Modifier</a></li>
+
                     <li><a href="./supprimer.php">Supprimer</a></li>
                 </ul>
             </li>

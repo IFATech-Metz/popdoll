@@ -12,7 +12,7 @@
     <header>
             <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
         <nav>
-            <ul>
+          <ul>
 
                 <li><a href="./index.php">Accueil</a></li>
 
@@ -25,14 +25,19 @@
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
                         <li><a href="./creer.php">Créer</a></li>
+
                         <li><a href="./modifier.php">Modifier</a></li>
+
                         <li><a href="./supprimer.php">Supprimer</a></li>
                     </ul>
                 </li>
 
             </ul>
         </nav>
+    
     </header>
+
+    
 
     <table>
       <tr>
@@ -44,7 +49,7 @@
       </tr>
 
   <?php
-    header('Content-Type: text/html; charset=utf-8');
+
     $path_txt = "./txt";
     $path_img = "./img";
     $tableau = array();
@@ -76,11 +81,17 @@
                     </button>
 
                     </form></td>";
+
           echo "</tr>";
+          
+
         }
+        
       }
+      
       closedir($dir);
     }
+    
   ?>
 
         </table>
