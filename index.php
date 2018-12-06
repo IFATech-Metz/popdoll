@@ -73,14 +73,6 @@
             {
               echo"<td>".$value."</td>";
             }
-<<<<<<< HEAD
-            
-            echo "<td>
-                  <form action='./file.php' method='POST'>
-                  <button type='submit' name='".trim($tableau["ID"])."'>
-                  <img src='".$path_img."/".trim($tableau["ID"]).".jpg' height='50' align='center' 
-                  border='2' ></button></form></td>";
-=======
 
           echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
 
@@ -90,7 +82,6 @@
 
                     </form></td>";
 
->>>>>>> 0a4ee1f5d801e5fc862fef96c1fd508a65f1c774
           echo "</tr>";
           
 
