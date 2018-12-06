@@ -62,16 +62,47 @@ form
 	position: relative;
 }
 
-button
+.bouton
 {
-	background-color: #012765;
 	padding: 5px;
+	padding-bottom: 10px;
+	border-radius: 17px;
+	border-color: #012765;
+	border: 2px solid;
+	background-color: white;
+
 }
 
 .tab
 {
 	border-color: #012765;
 	border:3;
+}
+
+.right
+{
+	float: right;
+/*	display: inline;*/
+	width: 50%;
+	font-size: 30px;
+}
+
+.left
+{
+	float: left;
+/*	display: inline;*/
+	width: 50%;
+	font-size: 30px;
+}
+
+.textInput
+{
+	color: #012765;
+	font-family: 'Guy';
+	font-size: 25px;
+	border: 2px solid #012765;
+	border-radius: 25px;
+	padding-left: 10px;
 }
 
 @font-face
@@ -114,9 +145,10 @@ button
 #red
 {
 	color: red;
-	font-size:25px;
+	font-size:22px;
 	background-color: transparent;
 	text-decoration: underline;
+	font-weight: bold;
 }
 
 #entre
@@ -135,7 +167,6 @@ button
 	display: flex;
 	position: relative;
 	text-align: justify;
-	font-size: 0px;
 }
 
 #tdsuppr
@@ -266,7 +297,7 @@ footer
 	}
 	nav
 	{
-		float: center;
+		float: none;
 		position: sticky;
 		top: 0px;
 		margin: auto;
@@ -275,5 +306,13 @@ footer
 	{
 		max-width:100%;
 		height:auto;
+	}
+	.left
+	{
+		float: none;
+	}
+	.right
+	{
+		float: none;
 	}
 }

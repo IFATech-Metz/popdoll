@@ -10,8 +10,11 @@
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <script src="main.js"></script>
     </head>
+
 <header>
-        <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls"/>
+
+        <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls"/>
+
     <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
@@ -24,7 +27,7 @@
             <li><a href="#Gestion">Gestion</a>
                 <ul>
                     <li><a href="./creer.php">Créer</a></li>
-                    <li><a href="#Modifier">Modifier</a></li>
+                    <li><a href="./modifier.php">Modifier</a></li>
                     <li><a href="./supprimer.php">Supprimer</a></li>
                 </ul>
             </li>
@@ -36,22 +39,22 @@
 
        <div>
            <p id='ajoutpop'>AJOUTER UNE POP DOLL: </p><br>
-           <form class='ajout' action=''method='POST' enctype='multipart/form-data'>
+           <form class='ajout' action='' method='POST' enctype='multipart/form-data'>
 
-            TITRE:<br>
-            <input type="text" name="titre" required value="">
-            <br>
-            CATEGORIE:<br>
-            <input type="text" name="cat" required value="">
-            <br>
-            DESCRIPTION:<br>
-            <input type="text" name="desc" required value="" style="width: 80%; height: 100px">
-            <br>        
-            <div id='ajout'>Ajouter l'image de la PopDoll:
-            <br><div id='red'>UNIQUEMENT</red> .jpg !</div></div>
+            <div class='left'>TITRE:<br>
+            <input class='textInput' type="text" name="titre" required value=""></div>
+            <div class='right'>CATEGORIE:<br>
+            <input class='textInput' type="text" name="cat" required value=""></div>
+            <br><br><br>
+            <div style='font-size: 30px;'>DESCRIPTION:<br>
+            <input type="text" class='textInput' name="desc" required value="" style="width: 80%; height: 40px"></div>     
+            <div id='ajout'>Ajouter l'image de la PopDoll:<br>
+	            <div id='red'>UNIQUEMENT .jpg !</div>
+        	</div>
+            <div class='bouton'>
             <input type='file' name='photo' required value="">
             <input type="submit" name="valider" value="Enregistrer !">
-
+            </div>
             </form>
        </div>
 
@@ -82,7 +85,11 @@
             rename($_FILES["photo"]["tmp_name"],$ig);
             imagejpeg($im_miniature, 'img/'.$ig, 90);
 
-           echo "<br><br><div id='ajoutpop2'>L'image " . $ig . " a bien été téléversée.</div>";
+/*           echo "<br><br><div id='ajoutpop2'>L'image " . $ig . " a bien été téléversée !</div>";*/
+
+            echo '<script type="text/javascript">
+                document.location.href="./index.php";
+                </script>';
        }          
     ?>
    </body>
