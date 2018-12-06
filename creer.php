@@ -24,7 +24,7 @@
             <li><a href="#Gestion">Gestion</a>
                 <ul>
                     <li><a href="./creer.php">Créer</a></li>
-                    <li><a href="#Modifier">Modifier</a></li>
+                    <li><a href="./edit.php">Modifier</a></li>
                     <li><a href="./supprimer.php">Supprimer</a></li>
                 </ul>
             </li>
@@ -82,7 +82,11 @@
             rename($_FILES["photo"]["tmp_name"],$ig);
             imagejpeg($im_miniature, 'img/'.$ig, 90);
 
-           echo "<br><br><div id='ajoutpop2'>L'image " . $ig . " a bien été téléversée.</div>";
+            unlink("./".$id.".jpg");
+
+            echo '<script type="text/javascript">
+                document.location.href="./index.php";
+                </script>'; 
        }          
     ?>
    </body>
