@@ -64,16 +64,16 @@
 
         if(isset($_POST["valider"]) && isset($_FILES['photo']['tmp_name']))
         {
-            $id=str_replace(" ","",$_POST["titre"]);
+            $id=str_replace(" ","", $_POST["titre"]);
             $id=strtolower($id);
-            $rp_txt="./txt/".$id.".txt";
-            $zero="ID:".$id."\r\n"."TITRE:".trim($_POST['titre'])."\r\n"."CAT:".trim($_POST['cat'])."\r\n"."DESC: ".trim($_POST['desc']);
+            $rp_txt="./txt/".htmlentities($id).".txt";
+            $zero="ID:".htmlentities($id)."\r\n"."TITRE:".htmlentities(trim($_POST['titre']))."\r\n"."CAT:".htmlentities(trim($_POST['cat']))."\r\n"."DESC: ".htmlentities(trim($_POST['desc']));
             $ecri=fopen($rp_txt,"w");
 
             fwrite($ecri,"$zero");
             fclose($ecri);
 
-            $ig=str_replace(" ","",$_POST["titre"]);
+            $ig=str_replace(" ","",htmlentities($_POST["titre"]));
             $ig=strtolower($ig).".jpg";
             $taille = getimagesize($_FILES['photo']['tmp_name']);
             $largeur = $taille[0];
@@ -86,7 +86,7 @@
             imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
             rename($_FILES["photo"]["tmp_name"],$ig);
             imagejpeg($im_miniature, 'img/'.$ig, 90);
-            unlink("./".$id.".jpg");
+            unlink("./".htmlentities($id).".jpg");
 
             echo '<script type="text/javascript">
                 document.location.href="./index.php";
