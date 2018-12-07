@@ -67,7 +67,9 @@
        ?>
           <div class='fiche'>
             <p class='ajoutpop'> <?php echo $tableau['TITRE'] ?></p><br>
-            <a href='<?php echo $path_img."/".$id_tableau.".jpg" ?>' target='_blank'><img class='imgFiche' src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='300'></a><br>
+            <a href='<?php echo $path_img."/".htmlentities($id_tableau).".jpg" ?>' target='_blank'><img class='imgFiche' 
+            src='<?php echo $path_img."/".htmlentities($id_tableau).".jpg" ?>' alt='<?php echo trim($tableau["TITRE"])?>' 
+            title="<?php echo "Cliquez pour agrandir l'image"?>" height='300'></a><br>
             <div class='categorie'>Catégorie: <br><?php echo $tableau['CAT'] ?></div><br>
             <p class='description'><?php echo $tableau['DESC'] ?></p><br>
           </div>
