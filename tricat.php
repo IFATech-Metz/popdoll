@@ -8,10 +8,6 @@
     <title>Pop Dolls</title>
   </head>
  <body>
-     <<?php
-     $marvel="Marvel";
-
-      ?>
 
     <header>
             <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
@@ -22,8 +18,8 @@
 
             <li><a href="#Liste">Trier</a>
                 <ul>
-                    <li><a href="#">Par Titres</a></li>
-                    <li><a href="tricat.php"><?php echo $marvel;?></a></li>
+                    <li><a href="#Recherche">Par Titres</a></li>
+                    <li><a href="tricat.php"><form action="tricat.php" method="post"><input type="submit" name=""><?php echo $marvel;?></form></a></li>
                     </ul>
                 </li>
                 <li><a href="#Gestion">Gestion</a>
@@ -53,7 +49,7 @@
       </tr>
 
   <?php
-
+    $marvel="Marvel";
     $path_txt = "./txt";
     $path_img = "./img";
     $path_img1="./img1";
@@ -71,12 +67,16 @@
               $LigneDeTexte = fgets($file);
               $parts = explode(":", $LigneDeTexte);
               $tableau[$parts[0]] = $parts[1];
+
             }
           fclose($file);
+          if (trim($tableau["CAT"])==$marvel){
+
           echo"<tr>";
           foreach ($tableau as $key => $value)
             {
               echo"<td>".$value."</td>";
+
             }
 
           echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
@@ -88,8 +88,7 @@
                     </form></td>";
 
           echo "</tr>";
-
-
+        }
         }
 
       }

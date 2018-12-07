@@ -38,18 +38,23 @@
 </header>
 
    <body>
-
+<?php
+$titre = !empty($_POST['titre']) ? $_POST['titre'] : '';
+$cat = !empty($_POST['cat']) ? $_POST['cat'] : '';
+$desc = !empty($_POST['desc']) ? $_POST['desc'] : '';
+ ?>
        <div>
            <p class='ajoutpop'>AJOUTER UNE POP DOLL: </p><br>
+
            <form class='ajout' action='' method='POST' enctype='multipart/form-data'>
 
             <div class='left'>TITRE:<br>
-            <input class='textInput' type="text" name="titre" required value=""></div>
+            <input class='textInput' type="text" name="titre" required value="<?php echo $titre; ?>"></div>
             <div class='right'>CATEGORIE:<br>
-            <input class='textInput' type="text" name="cat" required value=""></div>
+            <input class='textInput' type="text" name="cat" required value="<?php echo $cat; ?>"></div>
             <br><br><br>
             <div class='center';'>DESCRIPTION:<br>
-            <input type="text" class='textInput' name="desc" required value="" style="width: 80%; height: 40px"></div>
+            <input type="text" class='textInput' name="desc" required value="<?php echo $desc; ?>" style="width: 80%; height: 40px"></div>
             <div id='ajout'>Ajouter l'image de la PopDoll:<br>
 	            <div id='red'>UNIQUEMENT .jpg !</div>
         	</div>
@@ -64,9 +69,15 @@
 
         if(isset($_POST["valider"]) && isset($_FILES['photo']['tmp_name']))
         {
+
             $id=str_replace(" ","",$_POST["titre"]);
             $id=strtolower($id);
             $rp_txt="./txt/".$id.".txt";
+
+            if (file_exists($rp_txt)){
+                $echo ="<p class='ajoutpop' id='deja'>titre deja utilisé</p>";
+                echo $echo;
+            }else{
             $zero="ID:".$id."\r\n"."TITRE:".trim($_POST['titre'])."\r\n"."CAT:".trim($_POST['cat'])."\r\n"."DESC: ".trim($_POST['desc']);
             $ecri=fopen($rp_txt,"w");
 
@@ -92,6 +103,7 @@
                 document.location.href="./index.php";
                 </script>';
        }
+   }
     ?>
    </body>
 </html>
