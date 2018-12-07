@@ -77,7 +77,7 @@
           echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
 
                     <button class='boutonSuppr' type='submit' name='".htmlentities(trim($tableau["ID"]))."'>
-                      <img class='imgpop' src='".$path_img."/".htmlentities(trim($tableau["ID"])).".jpg' height='50' align='center' border='2' >
+                      <img class='imgpop' src='".$path_img."/".htmlentities(trim($tableau["ID"])).".jpg' alt='".trim($tableau["TITRE"])."' title='".trim($tableau["TITRE"])."' height='50' align='center' border='2' >
                     </button>
 
                     </form></td>";
