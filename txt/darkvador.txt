@@ -1,4 +1,4 @@
-ID:darkvador
-TITRE:Dark Vador
-CAT:Star Wars
-DESC:De son vrai nom Anakin Skywalker, Darth Vader est le célèbre méchant de la première trilogie Star Wars.
+ID: darkvador
+TITRE: Dark Vador
+CAT: Star Wars
+DESC: "De son vrai nom Anakin Skywalker, Darth Vader est le célèbre méchant de la première trilogie Star Wars."
