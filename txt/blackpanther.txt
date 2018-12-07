@@ -1,5 +1,4 @@
 ID:blackpanther
 TITRE:Black Panther
 CAT:Marvel
-DESC: Black Panther est le nom de super h&eacute;ros de T'Challa, prince puis roi du royaume imaginaire du Wakanda
-
+DESC: Black Panther est le nom de super héros de T'Challa, prince puis roi du royaume imaginaire du Wakanda
