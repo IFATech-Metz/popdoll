@@ -1,13 +1,7 @@
 header
 {
-	padding-bottom: 80px;
-	padding-top: 80px;
-	position: relative;
-}
-
-.imgpop:hover
-{
-	transform: scale(1.5);
+	padding-bottom: 85px;
+	padding-top: 40px;
 }
 
 body
@@ -50,18 +44,128 @@ form
 	font-size: 25px;
 	text-decoration: none;
 	font-family: "Guy";
-	font-weight: bold;
 	padding: 50px;
 	max-width: 60%;
 	margin: auto;
 	border: 2px solid ;
 	border-color: #012765;
-	border-radius: 5px;
 	border-width: medium;
 	border-radius: 25px;
 	display: inline-block;
 	position: relative;
 }
+
+button
+{
+	cursor: pointer;
+}
+
+th
+{
+	color:#012765;
+	font-family: "Guy";
+	background-color: rgba(207, 222, 0, 0.8);
+	font-size: 2em;
+	border: 1px solid ;
+	border-width: medium;
+	border-radius: 5px;
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+td
+{
+	font-family: "Open sans";
+	border: 2px solid ;
+	border-color: #012765;
+	text-align: center;
+	color: #f2f2f2;
+	border-radius: 5px;
+	background-color: #007cec;
+	background-repeat: repeat;
+	background-size: auto;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+ul
+{
+	list-style-type: none;
+	display: block;
+}
+
+li
+{
+	float: left;
+	display: table;
+	width: 150px;
+}
+
+li ul
+{
+	display: none;
+	width: auto;
+}
+
+li a
+{
+	color: #012765;
+	background-color:  rgba(207, 222, 0, 0.9);
+	padding: 20px;
+	display: block;
+	text-decoration: none;
+	font-family: "Guy";
+	font-weight: bold;
+	border: 2px solid ;
+	border-color: #012765;
+	border-radius: 5px;
+	border-width: medium;
+	width: inherit;
+}
+
+li a:hover
+{
+	background-color: #007cec;
+}
+
+li:hover ul
+{
+	display: block;
+}
+
+li li
+{
+	float: none;
+	margin-left: -40px;
+	width: 100%;
+}
+
+p
+{
+	font-size: 35px;
+	font-family: "Guy";
+	text-decoration: underline;
+	border: 2px solid #012765;
+	color: #012765;
+	background-color: rgba(207, 222, 0, 0.9);
+}
+
+footer
+{
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	float: center;
+}
+
+@font-face
+{
+	font-family: "Guy";
+	src : url("./font/guy.ttf");
+}
+
 
 .clicForm
 {
@@ -81,11 +185,6 @@ form
 	display: block;
 }
 
-button
-{
-	cursor: pointer;
-}
-
 .boutonSuppr
 {
 	padding: 10px;
@@ -98,12 +197,6 @@ button
 	font-family: "Guy";
 	cursor: pointer;
 	font-size: 1vw;
-}
-
-.tab
-{
-	border-color: #012765;
-	border:3;
 }
 
 .right
@@ -130,7 +223,6 @@ button
 .textInput
 {
 	color: #012765;
-	font-family: 'Guy';
 	font-size: 25px;
 	font-weight: bold;
 	border: 2px solid #012765;
@@ -138,7 +230,8 @@ button
 	padding-left: 10px;
 	width: 80%;
 	margin-bottom: 20px;
-	font-family: "Verdana", "Genava",sans-serif;
+	font-family: "Verdana", "Genava",sans-serif; 
+	height: 40px;
 }
 
 .fiche
@@ -148,8 +241,9 @@ button
 	background-color: rgba(207, 222, 0, 0.5);
 	display: block;
 	padding: 25px;
-	margin-left: 25%;
-	margin-right: 25%;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 25px;
 }
 
 .imgFiche
@@ -178,10 +272,16 @@ button
 	text-align: center;
 }
 
-@font-face
+.ajoutpop
 {
-	font-family: "Guy";
-	src : url("./font/guy.ttf");
+	display: inline-block;
+	padding: 20px;
+	border-radius: 25px;
+}
+
+.imgpop:hover
+{
+	transform: scale(1.5);
 }
 
 #ajout
@@ -194,13 +294,6 @@ button
 	position: relative;
 	background-color: transparent;
 	font-size: 25px;
-}
-
-.ajoutpop
-{
-	display: inline-block;
-	padding: 20px;
-	border-radius: 25px;
 }
 
 #ajoutpop2
@@ -247,104 +340,6 @@ button
 	padding: 0px;
 }
 
-th
-{
-	color:#012765;
-	font-family: "Guy";
-	background-color: rgba(207, 222, 0, 0.8);
-	font-size: 2em;
-	font-weight: bold;
-	border: 1px solid ;
-	border-width: medium;
-	border-radius: 5px;
-	padding-top: 7.5px;
-	padding-bottom: 7.5px;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-td
-{
-	text-align: justify;
-	font-family: "Open sans";
-	border: 2px solid ;
-	border-color: #012765;
-	text-align: center;
-	vertical-align: middle;
-	color: #f2f2f2;
-	border-radius: 5px;
-	background-color: #007cec;
-	background-repeat: repeat;
-	background-size: auto;
-	padding-left: 30px;
-	padding-right: 30px;
-}
-
-ul
-{
-	list-style-type: none;
-}
-
-li
-{
-	float: left;
-}
-
-li ul
-{
-	display: none;
-}
-
-li a
-{
-	color: #012765;
-	background-color:  rgba(207, 222, 0, 0.9);
-	padding: 20px;
-	display: block;
-	text-decoration: none;
-	font-family: "Guy";
-	font-weight: bold;
-	border: 2px solid ;
-	border-color: #012765;
-	border-radius: 5px;
-	border-width: medium;
-}
-
-li a:hover
-{
-	background-color: #007cec;
-}
-
-li:hover ul
-{
-	display: block;
-}
-
-li li
-{
-	float: none;
-	margin-left: -40px;
-}
-
-p
-{
-	font-size: 35px;
-	font-family: "Guy";
-	color: white;
-	text-decoration: underline;
-	border: 2px solid #012765;
-	color: #012765;
-	background-color: rgba(207, 222, 0, 0.9);
-}
-
-footer
-{
-	position: absolute;
-	display: block;
-	bottom: 0px;
-	float: center;
-}
-
 #banniere
 {
 	max-width:90%;
@@ -358,23 +353,30 @@ footer
 		margin: 0px;
 		padding: 0px;
 	}
+
 	th
 	{
 		font-size: 1em;
 	}
+
 	td
 	{
 		margin: 0px;
 		padding: 0px;
 		font-size: 1em;
 	}
+
 	nav
 	{
 		float: none;
-		position: sticky;
-		top: 0px;
 		margin: auto;
 	}
+
+	li
+	{
+		width: auto;
+	}
+
 	#banniere
 	{
 		max-width:100%;
@@ -383,12 +385,14 @@ footer
 		margin-right: -40%;
 		background-size: contain;
 	}
+
 	.left
 	{
 		float: none;
 		margin: auto;
 		width: 80%;
 	}
+
 	.right
 	{
 		float: none;
@@ -396,6 +400,7 @@ footer
 		width: 80%;
 
 	}
+
 	#suppr
 	{
 	border: 0px;
@@ -407,15 +412,18 @@ footer
 	display: flex;
 	position: relative;
 	}
+
 	.textInput
 	{
 		margin: 15px;
 	}
+
 	.fiche
 	{
 		margin-left: 0px;
 		margin-right: 0px;
 	}
+
 	.boutonSuppr
 	{
 		font-size: 1.8vw;
@@ -430,6 +438,7 @@ footer
 		margin: auto;
 		width: 80%;
 	}
+
 	.right
 	{
 		float: none;

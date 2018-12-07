@@ -81,11 +81,12 @@
                     </button>
 
                     </form></td>
-                    
-                  <td id='tdsuppr'><form id='suppr' action='' method=POST> 
-                  <input class='boutonSuppr' type='submit' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
+
+                  <td id='tdsuppr'>
+                  <form id='suppr' action='' method=POST> 
+                    <input class='boutonSuppr' type='submit' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
                   </form></td>";
-          echo "</tr>";
+            echo "</tr>";
           
           $tab_id = trim($tableau['ID']);
 
