@@ -74,13 +74,13 @@
             
             echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
 
-                    <button class='boutonSuppr' type='submit' name='".trim($tableau["ID"])."'>
-                      <img src='".$path_img."/".trim($tableau["ID"]).".jpg' height='50' align='center' border='2' >
+                    <button class='boutonSuppr' type='submit' name='".htmlentities(trim($tableau["ID"]))."'>
+                      <img src='".$path_img."/".htmlentities(trim($tableau["ID"])).".jpg' alt='".trim($tableau["TITRE"])."' title='".trim($tableau["TITRE"])."' height='50' align='center' border='2' >
                     </button>
 
                     </form></td>
                   <td id='tdsuppr'><form id='suppr' action='modifier_form.php' method=POST> 
-                  <input type='submit' class='boutonSuppr' name='". trim($tableau['ID']) . "' value='Modifier !'>
+                  <input type='submit' class='boutonSuppr' name='". htmlentities(trim($tableau['ID'])) . "' value='Modifier !'>
                   </form></td>";
             echo "</tr>";
           

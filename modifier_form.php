@@ -78,7 +78,7 @@
                         <div class='center'>DESCRIPTION:<br>
                         <input type='text' class='textInput' name='desc' style="width: 80%; height: 40px" value="<?php echo $tableau['DESC'] ?>"></div>
                         <div>IMAGE ACTUELLE :<br>
-                        <img src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='150'>
+                        <img src='<?php echo $path_img."/".htmlentities($id_tableau).".jpg" ?>' height='150'>
                         </div>
                         <div id='ajout'>MODIFIER L'IMAGE DE LA POP DOLL:<br>
                             <div id='red'>EN .JPG UNIQUEMENT !</div>
@@ -97,8 +97,8 @@
     }
     if (isset($_POST["valider"]))
     {
-        $rp_txt="./txt/".$_POST['id'].".txt";
-        $zero="ID:".$_POST['id']."\r\n"."TITRE:".trim($_POST['titre'])."\r\n"."CAT:".trim($_POST['cat'])."\r\n"."DESC: ".trim($_POST['desc']);
+        $rp_txt="./txt/".htmlentities($_POST['id']).".txt";
+        $zero="ID:".htmlentities($_POST['id'])."\r\n"."TITRE:".htmlentities(trim($_POST['titre']))."\r\n"."CAT:".htmlentities(trim($_POST['cat']))."\r\n"."DESC: ".htmlentities(trim($_POST['desc']));
         $ecri=fopen($rp_txt,"w");
         fwrite($ecri,"$zero");
         fclose($ecri);
