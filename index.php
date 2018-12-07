@@ -9,7 +9,6 @@
   </head>
  <body>
 
-
     <header>
             <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
         <nav>
@@ -20,10 +19,10 @@
             <li><a href="#Liste">Trier</a>
                 <ul>
                     <li><a href="#">Par Titres</a></li>
-                    <li><a href="tricat.php">categorie</a></li>
+                    <li><a href="#">Par Catégorie</a></li>
                     </ul>
                 </li>
-                <li><a href="#Gestion">Gestion</a>
+                <li><a href="#">Gestion</a>
                     <ul>
                         <li><a href="./creer.php">Créer</a></li>
 
