@@ -12,7 +12,11 @@ body
 	background-attachment: fixed;
 	position: relative;
 }
-
+#deja{
+	position:fixed;
+	bottom:50%;
+	left:0px;
+}
 nav
 {
 	z-index: 666;
@@ -452,4 +456,3 @@ footer
 		padding: 0px;
 	}
 }
-

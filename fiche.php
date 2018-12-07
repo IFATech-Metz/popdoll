@@ -73,6 +73,6 @@
             <div class='categorie'>Catégorie: <br><?php echo $tableau['CAT'] ?></div><br>
             <p class='description'><?php echo $tableau['DESC'] ?></p><br>
           </div>
-        
+
     </body>
 </html>
