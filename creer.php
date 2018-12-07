@@ -39,9 +39,9 @@
 
    <body>
 <?php
-$titre = !empty($_POST['titre']) ? $_POST['titre'] : '';
-$cat = !empty($_POST['cat']) ? $_POST['cat'] : '';
-$desc = !empty($_POST['desc']) ? $_POST['desc'] : '';
+            $titre = !empty($_POST['titre']) ? $_POST['titre'] : '';
+            $cat = !empty($_POST['cat']) ? $_POST['cat'] : '';
+            $desc = !empty($_POST['desc']) ? $_POST['desc'] : '';
  ?>
        <div>
            <p class='ajoutpop'>AJOUTER UNE POP DOLL: </p><br>
@@ -72,7 +72,7 @@ $desc = !empty($_POST['desc']) ? $_POST['desc'] : '';
 
             $id=str_replace(" ","",$_POST["titre"]);
             $id=strtolower($id);
-            $rp_txt="./txt/".$id.".txt";
+            $rp_txt="./txt/".htmlentities($id).".txt";
 
             if (file_exists($rp_txt)){
                 $echo ="<p class='ajoutpop' id='deja'>titre deja utilisé</p>";
