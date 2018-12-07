@@ -4,44 +4,36 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css" />
     <link rel="shortcut icon" href="fond/popLogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Dolls</title>
   </head>
- <body>
-     <<?php
-     $marvel="Marvel";
-
-      ?>
+  <body>
 
     <header>
-            <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
+
+            <img src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" style="max-width:100%;height:auto;" />
         <nav>
-          <ul>
+            <ul>
 
-                <li><a href="./index.php">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
 
-            <li><a href="#Liste">Trier</a>
-                <ul>
-                    <li><a href="#">Par Titres</a></li>
-                    <li><a href="tricat.php"><?php echo $marvel;?></a></li>
+                <li><a href="#Liste">Liste</a>
+                    <ul>
+                        <li><a href="#Recherche">Recherche</a></li>
+                        <li><a href="#Catégorie">Catégorie</a></li>
                     </ul>
                 </li>
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
-                        <li><a href="./creer.php">Créer</a></li>
-
-                        <li><a href="./modifier.php">Modifier</a></li>
-
-                        <li><a href="./supprimer.php">Supprimer</a></li>
+                        <li><a href="creer.php">Créer</a></li>
+                        <li><a href="modifier.php">Modifier</a></li>
+                        <li><a href="#Supprimer">Supprimer</a></li>
                     </ul>
                 </li>
 
             </ul>
         </nav>
-
     </header>
-
-
 
     <table>
       <tr>
@@ -49,14 +41,13 @@
         <th class='tab'>TITRE</th>
         <th class='tab'>CATEGORIE</th>
         <th class='tab'>DESCRIPTION</th>
-        <th class='tab'>DETAILS</th>
+        <th class='tab'>IMAGE</th>
       </tr>
 
   <?php
-
+    header('Content-Type: text/html; charset=utf-8');
     $path_txt = "./txt";
     $path_img = "./img";
-    $path_img1="./img1";
     $tableau = array();
     if ($dir = opendir($path_txt))
     {
@@ -78,27 +69,16 @@
             {
               echo"<td>".$value."</td>";
             }
-
-          echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
-
-                    <button class='boutonSuppr' type='submit' name='".htmlentities(trim($tableau["ID"]))."'>
-                      <img class='imgpop' src='".$path_img."/".htmlentities(trim($tableau["ID"])).".jpg' alt='".trim($tableau["TITRE"])."' title='".trim($tableau["TITRE"])."' height='50' align='center' border='2' >
-                    </button>
-
-                    </form></td>";
-
+          echo "<td><a target='_blank' href='".$path_img."/".$tableau["ID"].".jpg'><img class='imgpop' title='".$tableau["TITRE"]."' src='".$path_img."/".$tableau["ID"].".jpg' height='50' align='center' border='2' ></a></td>";
+          echo "<td><form action='fiche.php' method=POST><input type='submit' id='modif' name='".trim($tableau['ID'])."' value='detail'></form></td>";
           echo "</tr>";
 
-
         }
-
       }
-
       closedir($dir);
     }
-
   ?>
 
-        </table>
- </body>
+    </table>
+  </body>
 </html>

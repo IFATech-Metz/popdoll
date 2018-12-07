@@ -9,9 +9,9 @@
   <body>
 
     <header>
-      
+
         <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls" />
-        
+
       <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
@@ -33,7 +33,7 @@
             </li>
         </ul>
     </nav>
-    
+
     </header>
 
     <table>
@@ -73,7 +73,7 @@
             {
               echo"<td>".$value."</td>";
             }
-            
+
             echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
 
                     <button class='boutonSuppr' type='submit' name='".htmlentities(trim($tableau["ID"]))."'>
@@ -90,19 +90,19 @@
           
           $tab_id = trim($tableau['ID']);
 
-          if (isset($_POST["$tab_id"])) 
+          if (isset($_POST["$tab_id"]))
           {
             unlink($path_txt."/".$tab_id.".txt");
             unlink($path_img."/".$tab_id.".jpg");
 
             echo '<script type="text/javascript">
                 document.location.href="./supprimer.php";
-                </script>'; 
+                </script>';
           }
         }
       }
       closedir($dir);
-    }  
+    }
 ?>
 
     </table>
