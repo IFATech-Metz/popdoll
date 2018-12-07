@@ -46,7 +46,7 @@
             <br>
             DESCRIPTION:<br>
             <input type="text" name="desc" required value="" style="width: 80%; height: 100px">
-            <br>        
+            <br>
             <div id='ajout'>Ajouter l'image de la PopDoll:
             <br><div id='red'>UNIQUEMENT</red> .jpg !</div></div>
             <input type='file' name='photo' required value="">
@@ -77,17 +77,31 @@
             $hauteur_miniature = $hauteur / $largeur * 700;
             $im = imagecreatefromjpeg($_FILES['photo']['tmp_name']);
             $im_miniature = imagecreatetruecolor($largeur_miniature, $hauteur_miniature);
-
             imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
             rename($_FILES["photo"]["tmp_name"],$ig);
             imagejpeg($im_miniature, 'img/'.$ig, 90);
 
+
+            $ig1=str_replace(" ","",$_POST["titre"]);
+            $ig1=strtolower($ig1)."1.jpg";
+            $taille1 = getimagesize($_FILES['photo']['tmp_name']);
+            $largeur1 = $taille1[0];
+            $hauteur1 = $taille1[1];
+            $largeur_miniature1 = 50;
+            $hauteur_miniature1 = $hauteur1/ $largeur1 * 50;
+            $im1 = imagecreatefromjpeg($_FILES['photo']['tmp_name']);
+            $im_miniature1 = imagecreatetruecolor($largeur_miniature1, $hauteur_miniature1);
+            imagecopyresampled($im_miniature1, $im1, 0, 0, 0, 0, $largeur_miniature1, $hauteur_miniature1, $largeur1, $hauteur1);
+            rename($_FILES["photo"]["tmp_name"],$ig1);
+            imagejpeg($im_miniature1, 'img1/'.$ig1, 90);
+
             unlink("./".$id.".jpg");
+
 
             echo '<script type="text/javascript">
                 document.location.href="./index.php";
-                </script>'; 
-       }          
+                </script>';
+       }
     ?>
    </body>
 </html>

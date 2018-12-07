@@ -35,36 +35,41 @@
 
    <body>
        <?php
-       header('Content-Type: text/html; charset=utf-8');
        $path_txt = "./txt";
        $path_img = "./img";
-       $id=$_GET[trim($tableau['ID'])];
-       $tableau = array();
        if ($dir = opendir($path_txt))
        {
-         while ($entry = readdir($dir))
-         {
-           if ($entry != "." && $entry != ".."  )
+           while ($entry = readdir($dir))
            {
-             $entry = $id ;
-             $path = $path_txt."/".$entry;
-             $file = fopen($path, "r");
+               if ($entry != "." && $entry != "..")
+               {
+                   $path = $path_txt."/".$entry;
+                   $file = fopen($path, "r");
+                   $file_id = str_replace(".txt", "", $entry);
 
-                 $LigneDeTexte = fgets($file);
-                 $parts = explode(":", $LigneDeTexte);
-                 $tablea[$parts[0]] = $parts[1];
-               
-             fclose($file);
-             echo $tablea["TITRE"];
-         }
-     }
- }
-        ?>
-       <div>
+                   if (isset($_POST["$file_id"]))
+                   {
+                       $path_txt_id = $path_txt."/".$file_id.".txt";
+                       $open_id = fopen($path_txt_id, "r");
 
-
-
-
-
-   </body>
+                       while (!feof($open_id))
+                       {
+                           $LigneDeTexte = fgets($open_id);
+                           $parts = explode(":", $LigneDeTexte);
+                           $tableau[$parts[0]] = $parts[1];
+                       }
+                       $id_tableau = $tableau['ID'];
+                       echo print_r($tableau);
+                   }
+               }
+           }
+       }
+                 ?>
+        <div>
+             <p> <?php echo $tableau['TITRE'] ?><p><br>
+            <img src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='300'><br>
+            <p><?php echo $tableau['CAT'] ?></p><br><br>
+            <p><?php echo $tableau['DESC'] ?></p><br>
+        </div>
+    </body>
 </html>

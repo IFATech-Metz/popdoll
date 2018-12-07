@@ -9,9 +9,9 @@
   <body>
 
     <header>
-      
+
         <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
-        
+
       <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
@@ -31,7 +31,7 @@
             </li>
         </ul>
     </nav>
-    
+
     </header>
 
     <table>
@@ -71,30 +71,30 @@
             {
               echo"<td>".$value."</td>";
             }
-            
+
             echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'>
                   <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].
                   ".jpg'height='50' align='center' border='2' ></a></td>
-                  <td id='tdsuppr'><form id='suppr' action='' method=POST> 
+                  <td id='tdsuppr'><form id='suppr' action='' method=POST>
                   <input type='submit' name='". trim($tableau['ID']) . "' value='Supprimer'>
                   </form></td>";
           echo "</tr>";
-          
+
           $tab_id = trim($tableau['ID']);
 
-          if (isset($_POST["$tab_id"])) 
+          if (isset($_POST["$tab_id"]))
           {
             unlink($path_txt."/".$tab_id.".txt");
             unlink($path_img."/".$tab_id.".jpg");
 
             echo '<script type="text/javascript">
                 document.location.href="./supprimer.php";
-                </script>'; 
+                </script>';
           }
         }
       }
       closedir($dir);
-    }  
+    }
 ?>
 
     </table>

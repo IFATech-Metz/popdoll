@@ -4,17 +4,18 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css" />
     <link rel="shortcut icon" href="fond/popLogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Dolls</title>
   </head>
- <body>
+  <body>
 
     <header>
-            <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
-        <nav>
-          <ul>
 
-                <li><a href="./index.php">Accueil</a></li>
+            <img src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" style="max-width:100%;height:auto;" />
+        <nav>
+            <ul>
+
+                <li><a href="index.php">Accueil</a></li>
 
                 <li><a href="#Liste">Liste</a>
                     <ul>
@@ -24,18 +25,15 @@
                 </li>
                 <li><a href="#Gestion">Gestion</a>
                     <ul>
-                        <li><a href="./creer.php">Créer</a></li>
-                        <li><a href="./edit.php">Modifier</a></li>
-                        <li><a href="./supprimer.php">Supprimer</a></li>
+                        <li><a href="creer.php">Créer</a></li>
+                        <li><a href="modifier.php">Modifier</a></li>
+                        <li><a href="#Supprimer">Supprimer</a></li>
                     </ul>
                 </li>
 
             </ul>
         </nav>
-
     </header>
-
-
 
     <table>
       <tr>
@@ -47,10 +45,9 @@
       </tr>
 
   <?php
-
+    header('Content-Type: text/html; charset=utf-8');
     $path_txt = "./txt";
     $path_img = "./img";
-    $path_img1="./img1";
     $tableau = array();
     if ($dir = opendir($path_txt))
     {
@@ -72,23 +69,16 @@
             {
               echo"<td>".$value."</td>";
             }
-            $idd=trim($tableau["ID"])."1.jpg";
-            echo "<td><a target='_blank' href='" . $path_img . "/" . $tableau["ID"] . ".jpg'><form action='fiche.php' method='post' style='background: url(" . $path_img1 . "/" . $idd .") height:20px;'><input type='submit' id='modif' name='".trim($tableau['ID'])."' value=''  ></form>
-            <img class='imgpop' title='".$tableau["TITRE"]."'src='".$path_img."/".$tableau["ID"].".jpg' height='50' align='center' border='2' ></a></td>
-                  </td>";
-         echo "<td></td>";
+          echo "<td><a target='_blank' href='".$path_img."/".$tableau["ID"].".jpg'><img class='imgpop' title='".$tableau["TITRE"]."' src='".$path_img."/".$tableau["ID"].".jpg' height='50' align='center' border='2' ></a></td>";
+          echo "<td><form action='fiche.php' method=POST><input type='submit' id='modif' name='".trim($tableau['ID'])."' value='detail'></form></td>";
           echo "</tr>";
 
-
         }
-
       }
-
       closedir($dir);
     }
-
   ?>
 
-        </table>
- </body>
+    </table>
+  </body>
 </html>
