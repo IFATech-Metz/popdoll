@@ -12,11 +12,7 @@ body
 	background-attachment: fixed;
 	position: relative;
 }
-#deja{
-	position:fixed;
-	bottom:50%;
-	left:0px;
-}
+
 nav
 {
 	z-index: 666;
@@ -127,6 +123,7 @@ li a
 	border-radius: 5px;
 	border-width: medium;
 	width: inherit;
+	transition: 0.75s;
 }
 
 li a:hover
@@ -170,6 +167,7 @@ footer
 	src : url("./font/guy.ttf");
 }
 
+/* CLASS */
 
 .clicForm
 {
@@ -187,6 +185,16 @@ footer
 	border: 2px solid;
 	background-color: white;
 	display: block;
+}
+
+.boutonSuppr img
+{
+	transition: 0.75s;
+}
+
+.boutonSuppr:hover img
+{
+	transform: scale(1.5);
 }
 
 .boutonSuppr
@@ -283,10 +291,7 @@ footer
 	border-radius: 25px;
 }
 
-.imgpop:hover
-{
-	transform: scale(1.5);
-}
+/* ID */
 
 #ajout
 {
@@ -349,6 +354,15 @@ footer
 	max-width:90%;
 	height:auto;
 }
+
+#deja
+{
+	display: block;
+	background-color: transparent;
+	border-width: 5px;
+}
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 900px)
 {
@@ -436,7 +450,7 @@ footer
 
 @media screen and (max-width: 1010px)
 {
-		.left
+	.left
 	{
 		float: none;
 		margin: auto;
@@ -450,7 +464,8 @@ footer
 		width: 80%;
 
 	}
-		table
+	
+	table
 	{
 		margin: 0px;
 		padding: 0px;
