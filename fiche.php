@@ -14,7 +14,7 @@
 <header>
 
         <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls"/>
-    
+
     <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
@@ -33,65 +33,34 @@
 
    <body>
 
-       <?php
-       
-	       $path_txt = "./txt";
-	       $path_img = "./img";
+      <?php
+      if ($_GET AND $_GET['id']) $reqID = $_GET['id'];
 
-	       if ($dir = opendir($path_txt))
-	       {
-	           while ($entry = readdir($dir))
-	           {
-	               if ($entry != "." && $entry != "..")
-	               {
-	                   $path = $path_txt."/".$entry;
-	                   $file = fopen($path, "r");
-	                   $file_id = str_replace(".txt", "", $entry);
+      $path_txt = "./txt";
+      $path_img = "./img";
 
-	                   if (isset($_POST["$file_id"]))
-	                   {
-	                       $path_txt_id = $path_txt."/".$file_id.".txt";
-	                       $open_id = fopen($path_txt_id, "r");
-
-	                       while (!feof($open_id))
-	                       {
-	                           $LigneDeTexte = fgets($open_id);
-	                           $parts = explode(":", $LigneDeTexte);
-	                           $tableau[$parts[0]] = $parts[1];
-	                       }
-
-	                       $id_tableau = $tableau['ID'];
-	                   }
-	               }
-	           }
-	       }
-       ?>
-          <div class='fiche'>
-
-            <p class='ajoutpop'> <?php echo $tableau['TITRE'] ?></p>
-            <br>
-            <a href='<?php echo $path_img."/".trim(htmlentities($id_tableau)).".jpg" ?>' target='_blank'>
-            	<img class='imgFiche' src='<?php echo $path_img."/".trim(htmlentities($id_tableau)).".jpg" ?>' 
-                alt='<?php echo trim($tableau["TITRE"])?>' title="<?php echo "Cliquez pour agrandir l'image"?>" height='300'></a>
-        	<br>
-            <div class='categorie'>Catégorie: <br><?php echo $tableau['CAT'] ?></div>
-        	<br>
-            <p class='description'><?php echo $tableau['DESC'] ?></p>
-            <br>
-
-        <?php
-            $confirmation = "return confirm(\"Voulez-vous supprimer ". trim($tableau['TITRE']) ." de votre catalogue ?\")";
-
-            echo "<form class='invisible' action='modifier_form.php' method='POST'> 
-                <input type='submit' class='boutonSuppr' name='". htmlentities(trim($tableau['ID'])) . "' value='Modifier !'>
-                </form>
-                <form class='invisible' action='index.php' method='POST'> 
-                <input class='boutonSuppr' type='submit' onclick='".$confirmation."' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
-                </form>";
+      if (isset($reqID) AND file_exists($path_txt . '/' . $reqID . '.txt')) {
+        $tableau = yaml_parse_file($path_txt . '/' . $reqID . '.txt');
+        echo '<div class="fiche">
+          <p class="ajoutpop">' . $tableau['TITRE'] . '</p>
+          <p><img class="imgFiche" src="' . $path_img . '/' . $tableau['ID'] . '.jpg" height="300"></p>
+          <div class="categorie">Catégorie: <br>' . $tableau['CAT'] . '</div><br>
+          <p class="description">' . $tableau['DESC'] . '</p><br>
+        </div>';
+      } else {
+        // throw 404: do send header before content /!\
         ?>
+        <section>
+          <header>
+            <h2>Introuvable</h2>
+            <h3>Erreur 404</h3>
+          </header>
+          <p>La fiche demandée n'existe pas.</p>
+        </section>
+        <?php
+      }
 
-          </div>
-
+      ?>
     </body>
     
 </html>

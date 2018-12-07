@@ -40,63 +40,42 @@
         <th class='tab'>DETAILS</th>
       </tr>
 
-	  <?php
+<?php
 
-	    $path_txt = "./txt";
-	    $path_img = "./img";
-	    $tableau = array();
-	    if ($dir = opendir($path_txt))
-	    {
-	      while ($entry = readdir($dir))
-	      {
-	        if ($entry != "." && $entry != "..")
-	        {
-	          $path = $path_txt."/".$entry;
-	          $file = fopen($path, "r");
-	          while (!feof($file))
-            {
-              $LigneDeTexte = fgets($file);
-              $parts = explode(":", $LigneDeTexte);
-              $tableau[$parts[0]] = $parts[1];
-            }
-            fclose($file);
+    $path_txt = "./txt";
+    $path_img = "./img";
+    $tableau = array();
+    if ($dir = opendir($path_txt))
+    {
+      while ($entry = readdir($dir))
+      {
+        if ($entry != "." && $entry != "..")
+        {
+          $path = $path_txt . '/' . $entry;
+          $tableau = yaml_parse_file($path);
 
-            $trim = trim($tableau['ID']);
-            
-            if (isset($_POST[$trim])) 
-            {
-                if (file_exists($path_img."/".$trim.".jpg") && (file_exists($path_txt."/".$trim.".txt")))
-                {
-                  unlink($path_img."/".$trim.".jpg");
-                  unlink($path_txt."/".$trim.".txt");
+          echo '<tr>';
+          foreach ($tableau as $key => $value)
+          {
+            echo '<td>
+              <a href="./fiche.php?id=' . $tableau['ID'] . '" title="">' . $value . '
+            </td>';
+          }
 
-                  echo '<script type="text/javascript">
-                        document.location.href="./index.php";
-                      </script>';
-                }
-            }
-	          
-	          echo"<tr>";
-	          foreach ($tableau as $key => $value)
-	            {
-	              echo"<td>".$value."</td>";
-	            }
+          echo '<td>
+            <a href="./fiche.php?id=' . $tableau['ID'] . '" title="">
+              <img class="imgpop" src="./' . $path_img . '/' . $tableau['ID'] . '.jpg" height="50" width="50" />
+            </a>
+          </td>';
 
-	          echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
-
-	                    <button class='boutonSuppr' type='submit' name='".htmlentities(trim($tableau["ID"]))."'>
-	                      <img class='imgpop' src='".$path_img."/".htmlentities(trim($tableau["ID"])).".jpg' alt='".trim($tableau["TITRE"])."' title='".trim($tableau["TITRE"])."' height='50' align='center' border='2' >
-	                    </button>
-
-	                    </form></td>";
-
-	          echo "</tr>";
-	        }
+          echo '</tr>';
         }
-        closedir($dir);
       }
-	  ?>
+      closedir($dir);
+    }
 
-    </table>
+?>
+
+        </table>
  </body>
 </html>
