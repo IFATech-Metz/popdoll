@@ -11,20 +11,20 @@
         <script src="main.js"></script>
     </head>
 <header>
-        <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls"/>
+        <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls"/>
     <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
-            <li><a href="#Liste">Liste</a>
+            <li><a href="#Liste">Trier</a>
                 <ul>
-                    <li><a href="#Recherche">Recherche</a></li>
-                    <li><a href="#Catégorie">Catégorie</a></li>
+                    <li><a href="#Recherche">Par Titres</a></li>
+                    <li><a href="#Catégories">Par Catégories</a></li>
                 </ul>
             </li>
             <li><a href="#Gestion">Gestion</a>
                 <ul>
                     <li><a href="./creer.php">Créer</a></li>
-                    <li><a href="#Modifier">Modifier</a></li>
+                    <li><a href="./modifier.php">Modifier</a></li>
                     <li><a href="./supprimer.php">Supprimer</a></li>
                 </ul>
             </li>
@@ -58,18 +58,19 @@
                            $parts = explode(":", $LigneDeTexte);
                            $tableau[$parts[0]] = $parts[1];
                        }
+
                        $id_tableau = $tableau['ID'];
-                       echo print_r($tableau);
                    }
                }
            }
        }
-                 ?>
-        <div>
-             <p> <?php echo $tableau['TITRE'] ?><p><br>
-            <img src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='300'><br>
-            <p><?php echo $tableau['CAT'] ?></p><br><br>
-            <p><?php echo $tableau['DESC'] ?></p><br>
-        </div>
+       ?>
+          <div class='fiche'>
+            <p class='ajoutpop'> <?php echo $tableau['TITRE'] ?></p><br>
+            <a href='<?php echo $path_img."/".$id_tableau.".jpg" ?>' target='_blank'><img class='imgFiche' src='<?php echo $path_img."/".$id_tableau.".jpg" ?>' height='300'></a><br>
+            <div class='categorie'>Catégorie: <br><?php echo $tableau['CAT'] ?></div><br>
+            <p class='description'><?php echo $tableau['DESC'] ?></p><br>
+          </div>
+
     </body>
 </html>
