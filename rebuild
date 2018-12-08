@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+docker build -t popdolls:latest .
+
+docker container stop popdolls
+docker container rm popdolls
+
+docker run -dit --name popdolls -p 8080:80 popdolls:latest
+
+docker container prune -f
+docker image prune -f
