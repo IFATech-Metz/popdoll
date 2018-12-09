@@ -84,12 +84,14 @@
             <p class='description'><?php echo $tableau['DESC'] ?></p>
             <br>
 
-        <?php 
+        <?php
+            $confirmation = "return confirm(\"Voulez-vous supprimer ". trim($tableau['TITRE']) ." de votre catalogue ?\")";
+
             echo "<form id='suppr' action='modifier_form.php' method='POST'> 
                 <input type='submit' class='boutonSuppr' name='". htmlentities(trim($tableau['ID'])) . "' value='Modifier !'>
                 </form>
                 <form id='suppr' action='index.php' method='POST'> 
-                <input class='boutonSuppr' type='submit' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
+                <input class='boutonSuppr' type='submit' onclick='".$confirmation."' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
                 </form>";
         ?>
 

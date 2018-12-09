@@ -75,6 +75,8 @@
 					echo"<td>".$value."</td>";
 				}
 
+				$confirmation = "return confirm(\"Voulez-vous supprimer ". trim($tableau['TITRE']) ." de votre catalogue ?\")";
+
 				echo "<td><form class='clicForm' action='./fiche.php' method='POST'>
 
 				<button class='boutonSuppr' type='submit' name='".htmlentities(trim($tableau["ID"]))."'>
@@ -85,7 +87,7 @@
 
 				<td id='tdsuppr'>
 					<form id='suppr' action='' method=POST> 
-						<input class='boutonSuppr' type='submit' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
+						<input class='boutonSuppr' type='submit' onclick='".$confirmation."' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
 					</form>
 				</td>";
 				echo "</tr>";
