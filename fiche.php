@@ -8,8 +8,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="./style.css" />
         <link rel="shortcut icon" href="fond/popLogo.png" />
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script>
 
     </head>
 
@@ -77,14 +75,25 @@
 
             <p class='ajoutpop'> <?php echo $tableau['TITRE'] ?></p>
             <br>
-            <a href='<?php echo $path_img."/".htmlentities($id_tableau).".jpg" ?>' target='_blank'>
-            	<img class='imgFiche' src='<?php echo $path_img."/".htmlentities($id_tableau).".jpg" ?>' alt='<?php echo trim($tableau["TITRE"])?>' title="<?php echo "Cliquez pour agrandir l'image"?>" height='300'>
-        	</a>
+            <a href='<?php echo $path_img."/".trim(htmlentities($id_tableau)).".jpg" ?>' target='_blank'>
+            	<img class='imgFiche' src='<?php echo $path_img."/".trim(htmlentities($id_tableau)).".jpg" ?>' 
+                alt='<?php echo trim($tableau["TITRE"])?>' title="<?php echo "Cliquez pour agrandir l'image"?>" height='300'></a>
         	<br>
             <div class='categorie'>Catégorie: <br><?php echo $tableau['CAT'] ?></div>
         	<br>
             <p class='description'><?php echo $tableau['DESC'] ?></p>
             <br>
+
+        <?php
+            $confirmation = "return confirm(\"Voulez-vous supprimer ". trim($tableau['TITRE']) ." de votre catalogue ?\")";
+
+            echo "<form id='suppr' action='modifier_form.php' method='POST'> 
+                <input type='submit' class='boutonSuppr' name='". htmlentities(trim($tableau['ID'])) . "' value='Modifier !'>
+                </form>
+                <form id='suppr' action='index.php' method='POST'> 
+                <input class='boutonSuppr' type='submit' onclick='".$confirmation."' name='". htmlentities(trim($tableau['ID'])) . "' value='Supprimer !'>
+                </form>";
+        ?>
 
           </div>
 

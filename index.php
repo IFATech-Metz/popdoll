@@ -64,12 +64,28 @@
 	          $path = $path_txt."/".$entry;
 	          $file = fopen($path, "r");
 	          while (!feof($file))
-	            {
-	              $LigneDeTexte = fgets($file);
-	              $parts = explode(":", $LigneDeTexte);
-	              $tableau[$parts[0]] = $parts[1];
-	            }
-	          fclose($file);
+            {
+              $LigneDeTexte = fgets($file);
+              $parts = explode(":", $LigneDeTexte);
+              $tableau[$parts[0]] = $parts[1];
+            }
+            fclose($file);
+
+            $trim = trim($tableau['ID']);
+            
+            if (isset($_POST[$trim])) 
+            {
+                if (file_exists($path_img."/".$trim.".jpg") && (file_exists($path_txt."/".$trim.".txt")))
+                {
+                  unlink($path_img."/".$trim.".jpg");
+                  unlink($path_txt."/".$trim.".txt");
+
+                  echo '<script type="text/javascript">
+                        document.location.href="./index.php";
+                      </script>';
+                }
+            }
+	          
 	          echo"<tr>";
 	          foreach ($tableau as $key => $value)
 	            {
@@ -86,9 +102,9 @@
 
 	          echo "</tr>";
 	        }
-	      }
-	      closedir($dir);
-	    }
+        }
+        closedir($dir);
+      }
 	  ?>
 
     </table>

@@ -8,8 +8,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="./style.css" />
         <link rel="shortcut icon" href="fond/popLogo.png" />
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script>
 
     </head>
 
