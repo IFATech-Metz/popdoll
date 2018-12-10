@@ -227,9 +227,7 @@ footer
 
 .center
 {
-	float: none;
 	font-size: 30px;
-	display: inline-block;
 }
 
 .textInput
@@ -289,6 +287,13 @@ footer
 	display: inline-block;
 	padding: 20px;
 	border-radius: 25px;
+}
+
+.invisible
+{
+	background-color: transparent;
+	padding: 0px;
+	border-color: transparent;
 }
 
 /* ID */

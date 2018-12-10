@@ -18,13 +18,7 @@
     <nav>
         <ul>
             <li><a href="./index.php">Accueil</a></li>
-            <li><a href="#Liste">Trier</a>
-                <ul>
-                    <li><a href="#Recherche">Par Titres</a></li>
-                    <li><a href="#Catégories">Par Catégories</a></li>
-                </ul>
-            </li>
-            <li><a href="#Gestion">Gestion</a>
+            <li><a href="#">Gestion</a>
                 <ul>
                     <li><a href="./creer.php">Créer</a></li>
                     <li><a href="./modifier.php">Modifier</a></li>
@@ -33,9 +27,10 @@
             </li>
         </ul>
     </nav>
+
 </header>
 
-<body>
+    <body>
 
 	<?php
 
