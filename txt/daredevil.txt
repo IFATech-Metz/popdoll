@@ -1,4 +1,0 @@
-ID:daredevil
-TITRE:DareDevil
-CAT:Marvel
-DESC: Daredevil est le héros de la série Netflix Daredevil. Cette série s'inspire des comics Marvel du même nom et est l'une des quatre séries s'inscrivant aussi dans l'univers cinématographique Marvel.
