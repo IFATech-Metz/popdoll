@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
 
-  	<title>Pop Dolls</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" href="fond/popLogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PopDolls !</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="shortcut icon" href="fond/popLogo.png" />
 
-  </head>
+    </head>
 
- <body>
+<header>
 
-    <header>
+        <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls" />
 
-            <img id='banniere' src="fond/banniere.jpg" alt="Pop" title="Pop Dolls" />
-
-        <nav>
-          <ul>
+    <nav>
+        <ul>
             <li><a href="./index.php">Accueil</a></li>
-            <li><a href="#Liste">Trier</a>
+            <li><a href="#">Gestion</a>
                 <ul>
-                    <li><a href="#">Par Titres</a></li>
-                    <li><a href="#">Par Catégorie</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Gestion</a>
-                    <ul>
-                        <li><a href="./creer.php">Créer</a></li>
+                    <li><a href="./creer.php">Créer</a></li>
+                    <li><a href="./modifier.php">Modifier</a></li>
+                    <li><a href="./supprimer.php">Supprimer</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-                        <li><a href="./modifier.php">Modifier</a></li>
+</header>
 
-                        <li><a href="./supprimer.php">Supprimer</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-    </header>
-
-
-
+    <body>
     <table>
       <tr>
         <th class='tab'>ID</th>
