@@ -1,0 +1,16 @@
+<table class="<?=$view?>" id="collection">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Catégorie</th>
+      <th>Description</th>
+      <th>Détails</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+      foreach($list as $tableau) require('./src/templates/doll_list.html')
+    ?>
+  </tbody>
+</table>

@@ -10,9 +10,10 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 body
 {
   font-family: "Verdana", "Genava", sans-serif;
-  text-align: center;
   background-image: url('./fond/funkoBlack.jpg');
   background-attachment: fixed;
+  background-color: #000;
+  color: #f2f2f2;
 }
 
 body > header,
@@ -49,7 +50,7 @@ body > header nav
   z-index: 666;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 85px;
   text-align: left;
 }
 
@@ -104,35 +105,20 @@ img
 	border-radius: 5px;
 }
 
-table
-{
-
+article.collection > header {
+  display: none;
 }
 
-form
-{
-	color: #012765;
-	background-color: rgba(207, 222, 0, 0.8);
-	font-size: 25px;
-	text-decoration: none;
-	font-family: "Guy", sans-serif;
-	padding: 50px;
-	max-width: 60%;
-	margin: auto;
-	border: 2px solid ;
-	border-color: #012765;
-	border-width: medium;
-	border-radius: 25px;
-	display: inline-block;
-	position: relative;
+#collection a {
+  text-decoration: none;
+  color: #f2f2f2;
 }
 
-button
-{
-	cursor: pointer;
+#collection.list img {
+  max-width: 80px;
 }
 
-th
+#collection.list thead th
 {
 	color:#012765;
 	font-family: "Guy", sans-serif;
@@ -147,22 +133,39 @@ th
 	padding-right: 5px;
 }
 
-td
+#collection.list tbody th,
+#collection.list tbody td
 {
 	font-family: "Open sans", sans-serif;
+  font-weight: normal;
 	border: 2px solid ;
 	border-color: #012765;
 	text-align: center;
 	color: #f2f2f2;
-	border-radius: 5px;
 	background-color: #007cec;
-	background-repeat: repeat;
-	background-size: auto;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding: 15px;
+  vertical-align: middle;
 }
 
-p
+#collection.list tbody td.title,
+#collection.list tbody td.category
+{
+  white-space: nowrap;
+}
+
+#collection.list tbody td.title,
+#collection.list tbody td.category,
+#collection.list tbody td.description
+{
+  text-align: justify;
+}
+
+#collection.list tbody td.title
+{
+  font-weight: bold;
+}
+
+p.reserved
 {
 	font-size: 35px;
 	font-family: "Guy", sans-serif;;
@@ -170,14 +173,6 @@ p
 	border: 2px solid #012765;
 	color: #012765;
 	background-color: rgba(207, 222, 0, 0.9);
-}
-
-footer
-{
-	position: absolute;
-	display: block;
-	bottom: 0px;
-	float: center;
 }
 
 /* CLASS */
@@ -364,12 +359,6 @@ article.doll > header h2
 	padding: 0px;
 }
 
-#banniere
-{
-	max-width:90%;
-	height:auto;
-}
-
 #deja
 {
 	display: block;
@@ -381,43 +370,6 @@ article.doll > header h2
 
 @media screen and (max-width: 900px)
 {
-	table
-	{
-		margin: 0px;
-		padding: 0px;
-	}
-
-	th
-	{
-		font-size: 1em;
-	}
-
-	td
-	{
-		margin: 0px;
-		padding: 0px;
-		font-size: 1em;
-	}
-
-	nav
-	{
-		float: none;
-		margin: auto;
-	}
-
-	li
-	{
-		width: auto;
-	}
-
-	#banniere
-	{
-		max-width:100%;
-		height:auto;
-		margin-left: -40%;
-		margin-right: -40%;
-		background-size: contain;
-	}
 
 	.left
 	{
@@ -451,12 +403,6 @@ article.doll > header h2
 		margin: 15px;
 	}
 
-	.fiche
-	{
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-
 	.boutonSuppr
 	{
 		font-size: 1.8vw;
@@ -480,9 +426,4 @@ article.doll > header h2
 
 	}
 
-	table
-	{
-		margin: 0px;
-		padding: 0px;
-	}
 }

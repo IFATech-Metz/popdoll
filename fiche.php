@@ -12,10 +12,8 @@
       <?php
       if ($_GET AND $_GET['id']) $reqID = $_GET['id'];
 
-      $path_txt = "./txt";
-
-      if (isset($reqID) AND file_exists($path_txt . '/' . $reqID . '.txt')) {
-        $tableau = yaml_parse_file($path_txt . '/' . $reqID . '.txt');
+      if (isset($reqID) AND file_exists('./txt/' . $reqID . '.txt')) {
+        $tableau = yaml_parse_file('./txt/' . $reqID . '.txt');
         require('./src/templates/doll.html');
       } else {
         // throw 404: do send header before content /!\
