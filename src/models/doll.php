@@ -2,6 +2,17 @@
 
 class Doll {
 
+  const DATA = './txt/';
+  const IMG = './txt/';
+
+  static function load ($id) {
+    if (file_exists(self::DATA . $id . '.yaml')) {
+      return new Doll(yaml_parse_file(self::DATA . $id . '.yaml'));
+    } else {
+      return false;
+    }
+  }
+
   private $id, $title, $category, $description;
 
   public function __construct ($data) {

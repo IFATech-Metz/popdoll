@@ -10,8 +10,7 @@
 
   if ($_GET AND $_GET['id']) $reqID = $_GET['id'];
 
-  if (isset($reqID) AND file_exists('./txt/' . $reqID . '.txt')) {
-    $doll = new Doll(yaml_parse_file('./txt/' . $reqID . '.txt'));
+  if (isset($reqID) AND $doll = Doll::load($reqID)) {
 
     // Load Top of Page
     require_once('./src/templates/html_header.html');
