@@ -56,11 +56,7 @@ class Doll {
 
   public function __construct ($data) {
     if ($data['ID']) {
-      $this->id = $data['ID'];
-      $this->title = $data['TITRE'];
-      $this->category = $data['CAT'];
-      $this->description = $data['DESC'];
-      return $this;
+      return $this->update($data);
     }
     return false;
   }
@@ -69,5 +65,14 @@ class Doll {
     if ($full) require('./src/templates/doll.html');
     else require('./src/templates/doll_list.html');
   }
+
+  public function update ($data) {
+    $this->id = $data['ID'];
+    $this->title = $data['TITRE'];
+    $this->category = $data['CAT'];
+    $this->description = $data['DESC'];
+    return $this;
+  }
+
 
 }
