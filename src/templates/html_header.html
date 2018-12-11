@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><?=$context['site']?></title>
+    <link rel="stylesheet" href="./style.css" media="screen"/>
+    <link rel="icon" type="image/png" sizes="" href="./fond/popLogo.png" />
+    <link rel="icon" type="image/x-icon" sizes="128x128" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <header<?php if ($context['banniere']) echo ' class="' . $context['banniere'] . '"'; ?>>
+      <h1><?=$context['site']?></h1>
+
+      <nav>
+        <ul>
+          <li><a href="./index.php">Accueil</a></li>
+          <li><a href="#">Gestion</a>
+            <ul>
+              <li><a href="./creer.php">Créer</a></li>
+              <li><a href="./modifier.php">Modifier</a></li>
+              <li><a href="./supprimer.php">Supprimer</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <hr />
+    
+    <main>

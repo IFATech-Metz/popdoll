@@ -1,34 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<?php
 
-        <title>Détails</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="shortcut icon" href="fond/popLogo.png" />
+  $context = [
+    'site' => 'PopDolls !',
+    'banniere' => 'small'
+  ];
 
-    </head>
-    <body>
-
-      <header class="small">
-        <h1>PopDolls !</h1>
-
-        <nav>
-            <ul>
-                <li><a href="./index.php">Accueil</a></li>
-                <li><a href="#Gestion">Gestion</a>
-                    <ul>
-                        <li><a href="./creer.php">Créer</a></li>
-                        <li><a href="./modifier.php">Modifier</a></li>
-                        <li><a href="./supprimer.php">Supprimer</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-      </header>
+  // Load Top of Page
+  require_once('./src/templates/html_header.html');
+?>
 
       <?php
       if ($_GET AND $_GET['id']) $reqID = $_GET['id'];
@@ -57,7 +36,5 @@
         <?php
       }
 
-      ?>
-    </body>
-
-</html>
+  // Load Bottom of Page
+  require_once('./src/templates/html_header.html');

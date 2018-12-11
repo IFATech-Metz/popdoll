@@ -1,42 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<?php
 
-        <title>Modifier une PopDoll</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="shortcut icon" href="fond/popLogo.png" />
+  $context = [
+    'site' => 'PopDolls !',
+    'banniere' => 'small'
+  ];
 
-    </head>
-
-<header>
-      
-        <img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls"/>
-        
-    <nav>
-        <ul>
-            <li><a href="./index.php">Accueil</a></li>
-            <li><a href="#">Gestion</a>
-                <ul>
-                    <li><a href="./creer.php">Créer</a></li>
-                    <li><a href="./modifier.php">Modifier</a></li>
-                    <li><a href="./supprimer.php">Supprimer</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-</header>
-
-    <body>
-
-	<?php
+  // Load Top of Page
+  require_once('./src/templates/html_header.html');
 
 	    $path_txt = "./txt";
 	    $path_img = "./img";
-	    
+
 	    if ($dir = opendir($path_txt))
 	    {
 	        while ($entry = readdir($dir))
@@ -128,16 +102,12 @@
 	            rename($_FILES["photo"]["tmp_name"],$ig);
 	            imagejpeg($im_miniature, 'img/'.$ig, 90);
 	        }
-	        
+
 	        echo '<script type="text/javascript">
 	            document.location.href="./index.php";
 	            </script>';
-	        
-	    }      
-?>
-    </body>
-</html>    
 
+	    }
 
-
-    
+  // Load Bottom of Page
+  require_once('./src/templates/html_header.html');

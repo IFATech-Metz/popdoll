@@ -15,14 +15,21 @@ body
   background-attachment: fixed;
 }
 
+body > header,
+body > footer
+{
+  background-image: url('./fond/banniere.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 body > header
 {
   position: relative;
   height: 25vh;
   background-image: url('./fond/popLogo.png'), url('./fond/banniere.jpg');
   background-size: contain, cover;
-  background-repeat: no-repeat;
-  background-position: center;
   box-shadow: 0 .25em .25em hsla(0, 0%, 0%, .5);
 }
 
@@ -31,7 +38,8 @@ body > header.small
   height: 12vh;
 }
 
-h1
+h1,
+hr
 {
   display: none;
 }
@@ -86,6 +94,9 @@ header > nav li:hover ul
   display: block;
 }
 
+main {
+  margin: 85px;
+}
 
 img
 {
@@ -95,13 +106,7 @@ img
 
 table
 {
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 50px;
-	padding-right: 50px;
-	position: absolute;
-	z-index: -1;
-	padding-top: 25px;
+
 }
 
 form

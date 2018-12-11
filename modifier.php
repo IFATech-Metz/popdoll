@@ -1,39 +1,16 @@
-<!DOCTYPE html>
-<html>
-	<head>
+<?php
 
-		<title>Modifier une PopDoll</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<link rel="stylesheet" href="./style.css">
-		<link rel="shortcut icon" href="fond/popLogo.png">
+  $context = [
+    'site' => 'PopDolls !',
+    'banniere' => 'small'
+  ];
 
-	</head>
-
-<header>
-  
-    	<img id='banniere' src="fond/bannierePetite.jpg" alt="Pop" title="Pop Dolls">
-    
-    <nav>
-		<ul>
-			<li><a href="./index.php">Accueil</a></li>
-			<li><a href="#Gestion">Gestion</a>
-				<ul>
-					<li><a href="./creer.php">Créer</a></li>
-					<li><a href="./edit_form.php">Modifier</a></li>
-					<li><a href="./supprimer.php">Supprimer</a></li>
-				</ul>
-			</li>
-		</ul>
-    </nav>
-
-</header>
-
-	<body>
+  // Load Top of Page
+  require_once('./src/templates/html_header.html');
+?>
 
 	    <table>
-	    	
+
 	      <tr>
 	        <th class='tab'>ID</th>
 	        <th class='tab'>TITRE</th>
@@ -92,6 +69,7 @@
 
 	    </table>
 
-  	</body>
-  	
-</html>
+<?php
+
+  // Load Bottom of Page
+  require_once('./src/templates/html_header.html');
