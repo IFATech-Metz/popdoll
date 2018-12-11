@@ -109,6 +109,23 @@ article.collection > header {
   display: none;
 }
 
+article.collection form {
+  display: flex;
+  justify-content: space-between;
+}
+article.collection fieldset {
+  display: inline-block;
+  background-color: #007cec;
+  color: #f2f2f2;
+  border: 2px solid #012765;
+  padding: .25em .5em;
+  /* border-radius: 0 0 .25em .25em; */
+}
+article.collection label {
+  display: inline-block;
+  margin-right: .25em;
+}
+
 #collection a {
   text-decoration: none;
   color: #f2f2f2;
@@ -124,7 +141,7 @@ article.collection > header {
 	font-family: "Guy", sans-serif;
 	background-color: rgba(207, 222, 0, 0.8);
 	font-size: 2em;
-	border: 1px solid ;
+	border: 1px solid #012765;;
 	border-width: medium;
 	border-radius: 5px;
 	padding-top: 7.5px;

@@ -14,3 +14,44 @@
     ?>
   </tbody>
 </table>
+
+<script type="text/javascript">
+  let orderBy = 'title'
+  let order = 'asc'
+  let view = 'list'
+  if (/\?.+$/.test(document.URL)) {
+    let urlc = /\?(.+)$/.exec(document.URL)[1].split('&')
+    urlc.forEach(e => {
+      let cc = e.split('=')
+      switch (cc[0]) {
+        case 'order[by]':
+        case 'order%5Bby%5D':
+          orderBy = cc[1]
+          break;
+        case 'order[sort]':
+        case 'order%5Bsort%5D':
+          order = cc[1]
+          break;
+      }
+    })
+  }
+  let table = document.getElementById('collection')
+  let tools = document.createElement('form')
+  tools.setAttribute('method', 'get')
+  let ts = '<fieldset class="order"><label>Trier par</label><select name="order[by]"><option value="title"'
+  if (orderBy === 'title') ts += 'selected'
+  ts += '>Titre</option><option value="category"'
+  if (orderBy === 'category') ts += 'selected'
+  ts += '>Catégorie</option></select><select name="order[sort]"><option value="desc" '
+  if (order === 'desc') ts += 'selected'
+  ts += '>Descendant</option><option value="asc"'
+  if (order === 'asc') ts += 'selected'
+  ts += '>Ascendant</option></select></fieldset>'
+  tools.innerHTML = ts
+  table.before(tools)
+  tools.querySelectorAll('select, input').forEach(elem => {
+    elem.addEventListener('change', ev => {
+      tools.submit()
+    })
+  })
+</script>

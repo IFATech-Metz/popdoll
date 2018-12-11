@@ -12,11 +12,10 @@ class Doll {
     // Sanitize
     switch ($order) {
       case 'category':
-        $order = 'CAT';
+      case 'description':
         break;
-      case 'title':
       default:
-        $order = 'TITRE';
+        $order = 'title';
     }
     switch ($sort) {
       case 'desc':
