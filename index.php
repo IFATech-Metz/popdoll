@@ -31,21 +31,9 @@
           $path = $path_txt . '/' . $entry;
           $tableau = yaml_parse_file($path);
 
-          echo '<tr>';
-          foreach ($tableau as $key => $value)
-          {
-            echo '<td>
-              <a href="./fiche.php?id=' . $tableau['ID'] . '" title="">' . $value . '
-            </td>';
-          }
+          // Load Doll Template
+          require('./src/templates/doll_list.html');
 
-          echo '<td>
-            <a href="./fiche.php?id=' . $tableau['ID'] . '" title="">
-              <img class="imgpop" src="./' . $path_img . '/' . $tableau['ID'] . '.jpg" height="50" width="50" />
-            </a>
-          </td>';
-
-          echo '</tr>';
         }
       }
       closedir($dir);

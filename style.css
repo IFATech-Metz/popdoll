@@ -257,26 +257,22 @@ footer
 	height: 40px;
 }
 
-.fiche
+article.doll
 {
 	border: 5px solid #012765;
 	border-radius: 25px;
 	background-color: rgba(207, 222, 0, 0.5);
 	display: block;
-	padding: 25px;
-	margin-left: 20%;
-	margin-right: 20%;
-	margin-top: 25px;
 }
 
-.imgFiche
+article.doll img
 {
 	border: 3px solid #012765;
 	margin: 25px;
 	border-radius: 15px;
 }
 
-.categorie
+article.doll > header h3
 {
 	display: inline-block;
 	color: #012765;
@@ -284,7 +280,7 @@ footer
 	font-size: 25px;
 }
 
-.description
+article.doll .description
 {
 	background-color: rgba(207, 222, 0, 0.8);
 	border-radius: 25px;
@@ -295,11 +291,12 @@ footer
 	text-align: center;
 }
 
-.ajoutpop
+article.doll > header h2
 {
 	display: inline-block;
 	padding: 20px;
 	border-radius: 25px;
+  font-size: 30px;
 }
 
 .invisible
