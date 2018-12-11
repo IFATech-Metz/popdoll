@@ -30,7 +30,6 @@ class Doll {
     }
 
     if ($dir = opendir(self::DATA)) {
-      print_r('dir: ');print_r('$dir')
       while (false !== ($file = readdir($dir))) {
         if (preg_match('/^(.+)\.txt$/i', $file, $match)) {
           if ($doll = Doll::load($match[1])) {
