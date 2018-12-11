@@ -5,45 +5,49 @@ class Doll {
   const DATA = './txt/';
   const IMG = './txt/';
 
-  public static function list ($orderBy = 'title', $order = SORT_ASC) {
-    switch ($orderBy) {
-      case 'category':
-      case 'description':
-        break;
-      default:
-        $orderBy = 'title';
-    }
+  public static function list ($order = 'title', $sort = SORT_ASC) {
+    $ds = [];
+    $dolls = [];
+
+    // Sanitize
     switch ($order) {
+      case 'category':
+        $order = 'CAT';
+        break;
+      case 'title':
+      default:
+        $order = 'TITRE';
+    }
+    switch ($sort) {
       case 'desc':
       case -1:
-        $order = SORT_DESC;
+        $sort = SORT_DESC;
         break;
       case 'asc':
       case 1:
       default:
-        $order = SORT_ASC;
+        $sort = SORT_ASC;
     }
 
-    $ds = [];
-    $dolls = [];
-    if ($dir = opendir(self::DATA) {
+    if ($dir = opendir(self::DATA)) {
+      print_r('dir: ');print_r('$dir')
       while (false !== ($file = readdir($dir))) {
-        if (preg_match('/^(.+)\.yaml$/i', $file, $match)) {
+        if (preg_match('/^(.+)\.txt$/i', $file, $match)) {
           if ($doll = Doll::load($match[1])) {
-            $ds[] = $doll->$orderBy;
+            $ds[] = $doll->$order;
             $dolls[] = $doll;
           }
         }
       }
-      array_multisort($ds, $order, SORT_NATURAL, $dolls);
+      array_multisort($ds, $sort, SORT_NATURAL, $dolls);
       return $dolls;
     }
     return false;
   }
 
   static function load ($id) {
-    if (file_exists(self::DATA . $id . '.yaml')) {
-      return new Doll(yaml_parse_file(self::DATA . $id . '.yaml'));
+    if (file_exists(self::DATA . $id . '.txt')) {
+      return new Doll(yaml_parse_file(self::DATA . $id . '.txt'));
     } else {
       return false;
     }
