@@ -1,7 +1,20 @@
 header
 {
-	padding-bottom: 85px;
-	padding-top: 40px;
+  position: relative;
+  height: 25vh;
+  background-image: url('./fond/popLogo.png'), url('./fond/banniere.jpg');
+  background-size: contain, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 .25em .25em hsla(0, 0%, 0%, .5);
+}
+header.small
+{
+  height: 12vh;
+}
+h1
+{
+  display: none;
 }
 
 body
@@ -10,13 +23,16 @@ body
 	text-align: center;
 	background-image: url('./fond/funkoBlack.jpg');
 	background-attachment: fixed;
-	position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 nav
 {
 	z-index: 666;
 	position: absolute;
+  bottom: 0;
+  left:0;
 }
 
 
