@@ -12,24 +12,11 @@
 
   echo '<article class="collection"><header><h2>Collection</h2></header>';
 
-  $list = [];
-
-    if ($dir = opendir('./txt/'))
-    {
-      while ($entry = readdir($dir))
-      {
-        if ($entry != "." && $entry != "..")
-        {
-          $path = './txt/' . $entry;
-          $list[] = new Doll(yaml_parse_file($path));
-        }
-      }
-      closedir($dir);
-    }
-
-  if (count($list) > 0) {
+  // Render every Doll listed
+  if (false !== ($list = Doll::list($_REQUEST['order']['by'],$_REQUEST['order']['sort']))) {
     $view = 'list';
-    require_once('./src/templates/collection.html');
+    if ($_REQUEST['view']) $view = $_REQUEST['view'];
+    require('./src/templates/collection.html');
   }
   else echo '<p class="empty">Aucune entrée dans cette collection.</p>';
 
