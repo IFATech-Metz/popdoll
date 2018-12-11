@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <?php
-      foreach($list as $tableau) require('./src/templates/doll_list.html')
+      foreach($list as $doll) $doll->render();
     ?>
   </tbody>
 </table>

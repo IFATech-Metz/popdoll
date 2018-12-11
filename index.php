@@ -4,6 +4,9 @@
     'site' => 'PopDolls !'
   ];
 
+  // Load Doll class
+  require_once('./src/models/doll.php');
+
   // Load Top of Page
   require_once('./src/templates/html_header.html');
 
@@ -18,7 +21,7 @@
         if ($entry != "." && $entry != "..")
         {
           $path = './txt/' . $entry;
-          $list[] = yaml_parse_file($path);
+          $list[] = new Doll(yaml_parse_file($path));
         }
       }
       closedir($dir);

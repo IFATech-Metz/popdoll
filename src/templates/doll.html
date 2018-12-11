@@ -1,11 +1,11 @@
 <article class="doll">
 
     <header>
-      <h2 contenteditable><?=$tableau['TITRE']?></h2>
-      <h3 contenteditable><?=$tableau['CAT']?></h3>
+      <h2 contenteditable><?=$this->title?></h2>
+      <h3 contenteditable><?=$this->category?></h3>
     </header>
 
-    <img src="./img/<?=$tableau['ID']?>.jpg" />
-    <p class="description" contenteditable><?=$tableau['DESC']?></p>
+    <img src="./img/<?=$this->id?>.jpg" />
+    <p class="description" contenteditable><?=$this->description?></p>
 
 </article>

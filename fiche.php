@@ -5,17 +5,20 @@
     'banniere' => 'small'
   ];
 
+  // Load Doll class
+  require_once('./src/models/doll.php');
 
   if ($_GET AND $_GET['id']) $reqID = $_GET['id'];
 
   if (isset($reqID) AND file_exists('./txt/' . $reqID . '.txt')) {
-    $tableau = yaml_parse_file('./txt/' . $reqID . '.txt');
+    $doll = new Doll(yaml_parse_file('./txt/' . $reqID . '.txt'));
 
     // Load Top of Page
     require_once('./src/templates/html_header.html');
 
-    // Load Resource
-    require('./src/templates/doll.html');
+    // Render Resource
+    $doll->render(1);
+
   } else {
 
     // Return HTTP 404 Not Found
