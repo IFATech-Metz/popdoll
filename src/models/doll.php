@@ -1,5 +1,8 @@
 <?php
 
+// Load lib slug
+require_once('./src/lib/slug.php');
+
 class Doll {
 
   const DATA = './txt/';
