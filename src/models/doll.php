@@ -54,7 +54,8 @@ class Doll {
     }
   }
 
-  private $id, $title, $category, $description;
+
+  private $id, $title, $category, $collection, $description;
 
   public function __construct ($data) {
     if ($data['ID']) {
@@ -73,6 +74,7 @@ class Doll {
     $this->title = $data['TITRE'];
     $this->category = $data['CAT'];
     $this->description = $data['DESC'];
+    $this->collection = $data['collection'];
     return $this;
   }
 

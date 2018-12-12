@@ -4,6 +4,7 @@
       <th>ID</th>
       <th>Titre</th>
       <th>Catégorie</th>
+      <th>Collection</th>
       <th>Description</th>
       <th>Détails</th>
     </tr>
@@ -42,7 +43,9 @@
   if (orderBy === 'title') ts += 'selected'
   ts += '>Titre</option><option value="category"'
   if (orderBy === 'category') ts += 'selected'
-  ts += '>Catégorie</option></select><select name="order[sort]"><option value="desc" '
+  ts += '>Catégorie</option><option value="collection"'
+  if (orderBy === 'collection') ts += 'selected'
+  ts += '>Collection</option></select><select name="order[sort]"><option value="desc" '
   if (order === 'desc') ts += 'selected'
   ts += '>Descendant</option><option value="asc"'
   if (order === 'asc') ts += 'selected'
