@@ -8,6 +8,8 @@ class Doll {
   const DATA = './txt/';
   const IMG = './txt/';
 
+  /* --- Static Functions --- */
+
   public static function list ($order = 'title', $sort = SORT_ASC) {
     $ds = [];
     $dolls = [];
@@ -54,14 +56,39 @@ class Doll {
     }
   }
 
+  /* --- data --- */
 
-  private $id, $title, $category, $collection, $description;
+  private $title, $category, $collection, $description, $handle, $funkoData;
+  
+  /* --- Constructor --- */
+
+
 
   public function __construct ($data) {
     if ($data['ID']) {
       return $this->update($data);
     }
     return false;
+  }
+
+  /* --- Object Functions --- */
+
+  public function import () {
+    if (!$this->handle) return false;
+    $uu = 'https://www.funko.com/ui-api/search/' . $this->handle;
+    $this->funkoData = json_decode(file_get_contents($uu))->products[0];
+    if (preg_match('/^Pop!?(.*)\:([^-]+)(?:-(.+))?$/i',$this->funkoData->title, $ex)) {
+      $this->category = trim($ex[1]);
+      if ($ex[3]) {
+        $this->title = trim($ex[3]);
+        $this->collection = trim($ex[2]);
+      } else {
+        $this->title = trim($ex[2]);
+      }
+    } else {
+      return false;
+    }
+    return $this;
   }
 
   public function render ($full = false) {
