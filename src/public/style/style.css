@@ -62,11 +62,9 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 body
 {
-  font-family: "Verdana", "Genava", sans-serif;
-  background-image: url('/funkoBlack.jpg');
-  background-attachment: fixed;
-  background-color: #000;
-  color: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+  color: #012765;
+  background-color: #f2f2f2;
 }
 
 body > header,
@@ -81,10 +79,12 @@ body > footer
 body > header
 {
   position: relative;
+  z-index: 1;
   height: 25vh;
   background-image: url('/popLogo.png'), url('/banniere.jpg');
   background-size: contain, cover;
-  box-shadow: 0 .25em .25em hsla(0, 0%, 0%, .5);
+  box-shadow: 0 .1em .25em .25em hsla(0, 0%, 0%, .5);
+  background-color: #dbdfe4;
 }
 
 body > header.small
@@ -148,10 +148,6 @@ header > nav li:hover ul
   display: block;
 }
 
-main {
-  margin: 85px;
-}
-
 article.collection > header {
   display: none;
 }
@@ -166,13 +162,25 @@ article.collection fieldset {
   color: #f2f2f2;
   border: 2px solid #012765;
   padding: .25em .5em;
-  /* border-radius: 0 0 .25em .25em; */
 }
 article.collection label {
   display: inline-block;
   margin-right: .25em;
 }
 
+#collection {
+  width: 100%;
+}
+
+/* Hide ID */
+#collection thead th:first-child,
+#collection tbody th:first-child {
+  display: none;
+}
+#collection td.title {
+  color: #012765;
+  font-weight: bold;
+}
 #collection a {
   text-decoration: none;
   color: #f2f2f2;
@@ -234,6 +242,63 @@ article.collection label {
   max-height: 3em;
   border-radius: .25em;
 }
+
+/* --- Grid View --- */
+
+#collection.grid tbody {
+  display: block;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  text-align: center;
+  margin: 0;
+  padding: .25em;
+}
+
+#collection.grid thead,
+#collection.grid .doll .description {
+  display: none;
+}
+
+#collection.grid .doll {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 0 1;
+  margin: 2vh .25em;
+  padding: 1em;
+  color: #012765;
+  background-color: #fff;
+  text-decoration: none;
+  box-shadow: .1em .1em .25em hsla(0, 0%, 0%, .25);
+  border-radius: .5em;
+}
+
+#collection.grid .doll a,
+#collection.grid .doll td {
+  display: block;
+  text-decoration: none;
+  color: #012765;
+}
+
+#collection.grid .doll .title {
+  font-size: 1.25em;
+  font-variant: small-caps;
+  margin-bottom: 1vh;
+}
+
+#collection.grid .doll .category {
+  font-size: 1.1em;
+}
+#collection.grid .doll .image {
+  margin-top: auto;
+}
+#collection.grid .doll img {
+  width: 35vw;
+  max-width: 12em;
+  border-radius: .25em;
+}
+
 p.reserved
 {
 	font-size: 35px;
