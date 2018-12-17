@@ -186,60 +186,98 @@ article.collection label {
   color: #f2f2f2;
 }
 
-#collection.list img {
-  max-width: 80px;
+/* --- List View --- */
+
+#collection.list thead tr {
+  background-color: #dbdfe4;
+  /* color: #dbdfe4; */
+  font-variant: small-caps;
+  box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
+}
+#collection.list thead th {
+  padding: .5em;
+  vertical-align: middle;
+  font-size: .8em;
+  text-align: left;
+}
+#collection.list tbody tr {
+  background-color: #fff;
+  box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .25);
+}
+#collection.list thead tr,
+#collection.list tbody tr {
+  display: grid;
+  grid-template-columns: auto auto 6em;
+  grid-template-rows: auto auto auto;
+}
+#collection.list .title,
+#collection.list .description {
+  grid-column: 1 / 3;
+}
+#collection.list .title {
+  grid-row: 1;
+}
+#collection.list .category,
+#collection.list .collection {
+  grid-row: 2;
+  text-align: left;
+  /* white-space: nowrap; */
+}
+#collection.list .description {
+  grid-row: 3;
+}
+#collection.list .details {
+  grid-row: 1 / 4;
+  grid-column: 3;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
 }
 
-#collection.list thead th
-{
-	color:#012765;
-	font-family: "Guy", sans-serif;
-	background-color: rgba(207, 222, 0, 0.8);
-	font-size: 2em;
-	border: 1px solid #012765;;
-	border-width: medium;
-	border-radius: 5px;
-	padding-top: 7.5px;
-	padding-bottom: 7.5px;
-	padding-left: 5px;
-	padding-right: 5px;
+#collection.list .doll .title {
+  font-size: 1.1em;
 }
-
-#collection.list tbody th,
-#collection.list tbody td
-{
-	font-family: "Open sans", sans-serif;
-  font-weight: normal;
-	border: 2px solid ;
-	border-color: #012765;
-	text-align: center;
-	color: #f2f2f2;
-	background-color: #007cec;
-	padding: 15px;
+#collection.list .doll .description {
+  text-align: justify;
+  font-size: .85em;
+}
+#collection.list a {
+  display: block;
+  text-decoration: none;
+  color: #012765;
+  padding: .25rem .5rem;
   vertical-align: middle;
 }
-
-#collection.list tbody td.title,
-#collection.list tbody td.category
-{
-  white-space: nowrap;
+#collection.list .doll .title a {
+  padding-top: .75rem;
 }
-
-#collection.list tbody td.title,
-#collection.list tbody td.category,
-#collection.list tbody td.description
-{
-  text-align: justify;
+#collection.list .doll .description a {
+  padding-bottom: .75rem;
 }
-
-#collection.list tbody td.title
-{
-  font-weight: bold;
+#collection.list td,
+#collection.list th {
+  padding: 0;
+  vertical-align: middle;
+  text-align: left;
 }
-
-#collection.list tbody img
-{
-  max-height: 3em;
+#collection.list td.unic a {
+  text-align: center;
+  padding: .75em;
+}
+#collection.list td.unic a:hover,
+#collection.list tbody tr:hover th,
+#collection.list tbody tr:hover td,
+#collection.list tbody tr:hover th a,
+#collection.list tbody tr:hover td a {
+  background-color: #dbdfe4;
+  color: #512c1d;
+}
+#collection.list .doll .details {
+  text-align: center;
+}
+#collection.list .doll img {
+  max-height: 4.5em;
+  max-width: 4.5em;
   border-radius: .25em;
 }
 
@@ -290,7 +328,7 @@ article.collection label {
 #collection.grid .doll .category {
   font-size: 1.1em;
 }
-#collection.grid .doll .image {
+#collection.grid .doll .details {
   margin-top: auto;
 }
 #collection.grid .doll img {
