@@ -26,7 +26,7 @@ class Doll {
     // Sanitize
     switch ($order) {
       case 'category':
-      case 'description':
+      case 'collection':
         break;
       default:
         $order = 'title';
