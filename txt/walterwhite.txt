@@ -1,4 +1,0 @@
-ID: walterwhite
-TITRE: Walter White
-CAT: Breaking Bad
-DESC: "Walter White est un professeur de chimie sans histoire dans un petit lycée tranquille du Nouveau-Mexique jusqu'au jour où il apprend une terrible nouvelle : il souffre d'un cancer au stade terminal"

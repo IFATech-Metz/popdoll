@@ -1,16 +1,25 @@
 <?php
 
 // Load lib slug
-require_once('./src/lib/slug.php');
+require_once('../lib/slug.php');
 
 class Doll {
 
-  const DATA = './txt/';
-  const IMG = './txt/';
+  const DATA = '../../data/';
 
   /* --- Static Functions --- */
 
+  public static function find ($query) {
+    $url = 'https://www.funko.com/ui-api/search?text=' . $query;
+    return json_decode(file_get_contents($url))->products;
+  }
+
   public static function list ($order = 'title', $sort = SORT_ASC) {
+    if (
+      !file_exists(self::DATA)
+      OR false === ($dir = opendir(self::DATA))
+    ) return false;
+
     $ds = [];
     $dolls = [];
 
@@ -33,50 +42,39 @@ class Doll {
         $sort = SORT_ASC;
     }
 
-    if ($dir = opendir(self::DATA)) {
-      while (false !== ($file = readdir($dir))) {
-        if (preg_match('/^(.+)\.txt$/i', $file, $match)) {
-          if ($doll = Doll::load($match[1])) {
-            $ds[] = $doll->$order;
-            $dolls[] = $doll;
-          }
+    while (false !== ($file = readdir($dir))) {
+      if (preg_match('/^(.+)\.yml$/i', $file, $match)) {
+        if ($doll = Doll::load($match[1])) {
+          $ds[] = $doll->$order;
+          $dolls[] = $doll;
         }
       }
-      array_multisort($ds, $sort, SORT_NATURAL, $dolls);
-      return $dolls;
     }
-    return false;
+    array_multisort($ds, $sort, SORT_NATURAL, $dolls);
+    return $dolls;
   }
 
-  static function load ($id) {
-    if (file_exists(self::DATA . $id . '.txt')) {
-      return new Doll(yaml_parse_file(self::DATA . $id . '.txt'));
-    } else {
-      return false;
-    }
+  static function load ($handle) {
+    if (!file_exists(self::DATA . $handle . '.yml')) return false;
+    return new Doll(yaml_parse_file(self::DATA . $handle . '.yml'));
   }
 
   /* --- data --- */
 
   private $title, $category, $collection, $description, $handle, $funkoData;
-  
+
   /* --- Constructor --- */
 
-
-
-  public function __construct ($data) {
-    if ($data['ID']) {
-      return $this->update($data);
-    }
-    return false;
+  private function __construct ($data) {
+    if (!$data['handle']) return false;
+    return $this->update($data)->import();
   }
 
   /* --- Object Functions --- */
 
   public function import () {
     if (!$this->handle) return false;
-    $uu = 'https://www.funko.com/ui-api/search/' . $this->handle;
-    $this->funkoData = json_decode(file_get_contents($uu))->products[0];
+    $this->funkoData = json_decode(file_get_contents('https://www.funko.com/ui-api/search/' . $this->handle))->products[0];
     if (preg_match('/^Pop!?(.*)\:([^-]+)(?:-(.+))?$/i',$this->funkoData->title, $ex)) {
       $this->category = trim($ex[1]);
       if ($ex[3]) {
@@ -85,25 +83,20 @@ class Doll {
       } else {
         $this->title = trim($ex[2]);
       }
-    } else {
-      return false;
     }
+    else return false;
     return $this;
   }
 
   public function render ($full = false) {
-    if ($full) require('./src/templates/doll.html');
-    else require('./src/templates/doll_list.html');
+    if ($full) require('../templates/doll.html');
+    else require('../templates/doll_list.html');
   }
 
   public function update ($data) {
-    $this->id = $data['ID'];
-    $this->title = $data['TITRE'];
-    $this->category = $data['CAT'];
-    $this->description = $data['DESC'];
-    $this->collection = $data['collection'];
+    $this->description = $data['description'];
+    $this->handle = $data['handle'];
     return $this;
   }
-
 
 }

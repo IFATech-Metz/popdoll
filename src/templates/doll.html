@@ -1,14 +1,12 @@
 <article class="doll">
-
     <header>
-
-      <h2 contenteditable> <?=$this->title?></h2>
-      <h3 contenteditable> <?=$this->category?></h3>
-      <h4 contenteditable> <?=$this->collection?></h4>
-
+      <ol class="breadcrumb">
+        <li><a href="./">Collection</a></li>
+      </ol>
+      <h2><?=$this->title?></h2>
+      <h3><?=$this->category?></h3>
+      <h4><?=$this->collection?></h4>
     </header>
-
-    <img src="./img/<?=$this->id?>.jpg" />
+    <?php if ($this->funkoData->image->src) echo '<img src="' . $this->funkoData->image->src . '"/>'; ?>
     <p class="description" contenteditable> <?=$this->description?></p>
-
 </article>

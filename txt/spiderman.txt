@@ -1,4 +1,0 @@
-ID: spiderman
-TITRE: Spiderman
-CAT: Marvel
-DESC: "Spiderman est l'identité secrète de Peter Parker, un lycéen ayant obtenu des super pouvoirs suite à la morsure d'une araignée radioactive."

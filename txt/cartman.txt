@@ -1,4 +1,0 @@
-ID: cartman
-TITRE: Cartman
-CAT: South Park
-DESC: "Cartman est l'un des personnages principaux du fameux dessin animé South Park."

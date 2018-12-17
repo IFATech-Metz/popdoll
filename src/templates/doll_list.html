@@ -1,41 +1,43 @@
 <tr class="doll">
 
   <th class="id">
-    <a href="./fiche.php?id=<?=$this->id?>" title="<?=$this->title?>">
-      <?=$this->id?>
+    <a href="/dolls/<?=$this->handle?>" title="<?=$this->title?>">
+      <?=$this->handle?>
     </a>
   </th>
 
   <td class="title">
-    <a href="./fiche.php?id=<?=$this->id?>" title="<?=$this->title?>">
+    <a href="/dolls/<?=$this->handle?>" title="<?=$this->title?>">
       <?=$this->title?>
     </a>
   </td>
 
   <td class="category">
-    <a href="./fiche.php?id=<?=$this->id?>"
+    <a href="/dolls/<?=$this->handle?>"
       title="<?=$this->title?>">
       <?=$this->category?>
     </a>
   </td>
 
   <td class="collection">
-    <a href="./fiche.php?id=<?=$this->id?>"
+    <a href="/dolls/<?=$this->handle?>"
       title="<?=$this->title?>">
       <?=$this->collection?>
     </a>
   </td>
 
   <td class="description">
-    <a href="./fiche.php?id=<?=$this->id?>" title="<?=$this->title?>">
+    <a href="/dolls/<?=$this->handle?>" title="<?=$this->title?>">
       <?=$this->description?>
     </a>
   </td>
 
   <td class="image">
-    <a href="./fiche.php?id=<?=$this->id?>" title="<?=$this->title?>">
-      <img src="./img/<?=$this->id?>.jpg" />
-    </a>
+    <?php if ($this->funkoData->image->src) { ?>
+      <a href="/dolls/<?=$this->handle?>" title="<?=$this->title?>">
+        <img src="<?=$this->funkoData->image->src?>"/>
+      </a>
+    <?php } ?>
   </td>
 
 </tr>

@@ -10,7 +10,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 body
 {
   font-family: "Verdana", "Genava", sans-serif;
-  background-image: url('./fond/funkoBlack.jpg');
+  background-image: url('/funkoBlack.jpg');
   background-attachment: fixed;
   background-color: #000;
   color: #f2f2f2;
@@ -19,7 +19,7 @@ body
 body > header,
 body > footer
 {
-  background-image: url('./fond/banniere.jpg');
+  background-image: url('/banniere.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -29,7 +29,7 @@ body > header
 {
   position: relative;
   height: 25vh;
-  background-image: url('./fond/popLogo.png'), url('./fond/banniere.jpg');
+  background-image: url('/popLogo.png'), url('/banniere.jpg');
   background-size: contain, cover;
   box-shadow: 0 .25em .25em hsla(0, 0%, 0%, .5);
 }
@@ -97,12 +97,6 @@ header > nav li:hover ul
 
 main {
   margin: 85px;
-}
-
-img
-{
-	border-color: #012765;
-	border-radius: 5px;
 }
 
 article.collection > header {
@@ -182,6 +176,11 @@ article.collection label {
   font-weight: bold;
 }
 
+#collection.list tbody img
+{
+  max-height: 3em;
+  border-radius: .25em;
+}
 p.reserved
 {
 	font-size: 35px;
@@ -190,6 +189,11 @@ p.reserved
 	border: 2px solid #012765;
 	color: #012765;
 	background-color: rgba(207, 222, 0, 0.9);
+}
+
+article.doll img {
+  max-width: calc(80vw - 3em);
+  max-height: calc(65vh - 4vw - 3em);
 }
 
 /* CLASS */
