@@ -6,6 +6,59 @@
 
 /* CSS Reset */
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,main,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}body{line-height:1;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}nav ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote::after,q:before,q::after{content:'';content:none;}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;}ins{background-color:#ff9;color:#000;text-decoration:none;}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold;}del{text-decoration:line-through;}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}table{border-collapse:collapse;border-spacing:0;}hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0;}input,select{vertical-align:middle;}
+/* --- Color Paletle  --- */
+#palette {
+  position: fixed;
+  bottom: 3vh;
+  right: .25rem;
+  text-align: right;
+}
+#palette li {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: .25rem;
+  cursor: help;
+  border: 1px solid transparent;
+}
+#palette li:hover {
+  border-color: hsl(0, 0%, 50%);
+}
+/* Primary Core palette */
+#palette .primary.blue {
+  background-color: #007cec;
+}
+#palette .primary.gray {
+  background-color: #f2f2f2;
+}
+#palette .primary.orange {
+  background-color: #f27120;
+}
+/* Secondary Core palette */
+#palette .secondary {
+  width: 1rem;
+  height: 1rem;
+  margin-left: .75rem;
+}
+#palette .secondary.green {
+  margin-top: 1rem;
+  background-color: #cfde00;
+}
+#palette .secondary.brown {
+  background-color: #512c1d;
+}
+#palette .secondary.blue {
+  background-color: #93b7bb;
+}
+#palette .secondary.gray  {
+  background-color: #dbdfe4;
+}
+#palette .secondary.teal {
+  background-color: #2EEDED;
+}
+#palette .secondary.darkblue {
+  background-color: #012765;
+}
 
 body
 {
