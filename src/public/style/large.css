@@ -1,0 +1,18 @@
+#collection.list {
+  margin: 0 10vw;
+  width: calc(100% - 20vw);
+}
+#collection.list thead tr,
+#collection.list tbody tr {
+  display: table-row;
+}
+#collection.list .doll td {
+  display: table-cell;
+}
+#collection.list .doll a,
+#collection.list .doll .title a,
+#collection.list .doll .category a,
+#collection.list .doll .collection a,
+#collection.list .doll .description a {
+  padding: .5rem;
+}
