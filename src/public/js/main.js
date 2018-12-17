@@ -5,6 +5,13 @@ if (table) {
   let by = 'title'
   let sort = 'asc'
   let view = 'list'
+  if (window.localStorage) {
+    console.log('localStorage', 'on')
+    if (localStorage.getItem('view')) {
+      view = localStorage.getItem('view')
+      console.log('view', view)
+    }
+  }
   if (/\?.+$/.test(document.URL)) {
     let urlc = /\?(.+)$/.exec(document.URL)[1].split('&')
     urlc.forEach(e => {
@@ -18,18 +25,14 @@ if (table) {
         case 'order%5Bsort%5D':
           sort = cc[1]
           break;
-        case 'view':
-          view = cc[1]
-          break;
       }
     })
-  } else if (window.localstorage) {
-    // { by, sort, view } = JSON.parse(localStorage.getItem('order'))
   }
-  let table = document.getElementById('collection')
-  let tools = document.createElement('form')
-  tools.method = 'get'
-  let ts = '<fieldset class="order"><label>Trier par</label><select name="order[by]"><option value="title"'
+  table.className = view
+  
+  let tools = document.createElement('div')
+  tools.id = 'tools'
+  let ts = '<form method="get" class="order"><label>Trier par</label><select name="order[by]"><option value="title"'
   if (by === 'title') ts += 'selected'
   ts += '>Titre</option><option value="category"'
   if (by === 'category') ts += 'selected'
@@ -39,19 +42,26 @@ if (table) {
   if (sort === 'asc') ts += 'selected'
   ts += '>A &rarr; Z</option><option value="desc" '
   if (sort === 'desc') ts += 'selected'
-  ts += '>Z &rarr; A</option></select></fieldset>'
-  + '<fieldset class="view"><label>Vue</label><input type="radio" name="view" value="list"'
+  ts += '>Z &rarr; A</option></select></form>'
+  + '<form class="view"><label>Vue</label><input type="radio" name="view" value="list"'
   if (view === 'list') ts += 'checked'
   ts += '/>Liste <input type="radio" name="view" value="grid"'
   if (view === 'grid') ts += 'checked'
   ts += ' />Grille</fieldset>'
   tools.innerHTML = ts
   table.before(tools)
-  tools.querySelectorAll('select, input').forEach(elem => {
+  tools.querySelectorAll('select').forEach(elem => {
     elem.addEventListener('change', ev => {
-      tools.submit()
+      elem.form.submit()
     })
   })
+  tools.querySelectorAll('input').forEach(elem => {
+    elem.addEventListener('change', ev => {
+      table.className = elem.value
+      localStorage.setItem('view', elem.value)
+    })
+  })
+
 }
 
 /// Resource / Doll

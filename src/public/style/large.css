@@ -1,5 +1,10 @@
-#collection.list {
+article.collection #tools {
   margin: 0 10vw;
+  box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
+  border-radius: 0 0 .25em .25em;
+}
+#collection.list {
+  margin: 2vh 10vw;
   width: calc(100% - 20vw);
 }
 #collection.list thead tr,
