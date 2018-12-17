@@ -60,7 +60,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   background-color: #012765;
 }
 
-body
+body,
+input
 {
   font-family: 'Open Sans', sans-serif;
   color: #012765;
@@ -98,54 +99,8 @@ hr
   display: none;
 }
 
-body > header nav
-{
-  z-index: 666;
-  position: absolute;
-  top: 100%;
-  left: 85px;
-  text-align: left;
-}
-
-body > header nav  a
-{
-  display: block;
-  padding: 20px;
-  border: medium solid #007cec;
-  border-radius: 5px;
-  color: #007cec;
-  background-color: #f2f2f2;
-  text-decoration: none;
-  transition: background-color .5s, color .5s;
-}
-
-body > header nav > ul
-{
-  display: block;
-  font-family: "Guy", sans-serif;
-  font-weight: bold;
-}
-
-body > header nav > ul > li
-{
-  display: inline-block;
-}
-
-body > header nav li ul
-{
-  position: absolute;
-  display: none;
-}
-
-header > nav li a:hover
-{
-  background-color: #007cec;
-  color: #f2f2f2;
-}
-
-header > nav li:hover ul
-{
-  display: block;
+main {
+  text-align: center;
 }
 
 article.collection > header {
@@ -339,270 +294,74 @@ article.collection #tools label {
   border-radius: .25em;
 }
 
-p.reserved
-{
-	font-size: 35px;
-	font-family: "Guy", sans-serif;;
-	text-decoration: underline;
-	border: 2px solid #012765;
-	color: #012765;
-	background-color: rgba(207, 222, 0, 0.9);
+/* --- Doll --- */
+article.doll {
+  display: inline-block;
+  text-align: center;
+  margin: 4vh 4vw;
+  color: #012765;
+  border-radius: .5em;
 }
-
+article.doll > header {
+  margin-bottom: .5em;
+}
 article.doll img {
-  max-width: calc(80vw - 3em);
-  max-height: calc(65vh - 4vw - 3em);
+  max-width: calc(80vw);
+  max-height: calc(65vh - 4vw);
+  padding: 2vw;
+  border-radius: .75em;
+  margin: 2vh 2vw;
+  background-color: #fff;
+  box-shadow: .1em .1em .25em hsla(0, 0%, 0%, .5);
 }
 
-/* CLASS */
-
-.clicForm
-{
-	font-size: 0px;
-	padding: 0px;
-	display: contents;
+article.doll h2 {
+  font-size: 2.5em;
+  font-variant: small-caps;
+}
+article.doll h3,
+article.doll h4 {
+  display: inline-block;
+  font-size: 1.25em;
+}
+article.doll h3 {
+  margin-top: 1vh;
+}
+article.doll h3::before {
+  content: 'Pop! ';
+}
+article.doll h3::after {
+  content: ' : ';
 }
 
-.bouton
-{
-	padding: 5px;
-	padding-bottom: 10px;
-	border-radius: 17px;
-	border-color: #012765;
-	border: 2px solid;
-	background-color: white;
-	display: block;
+
+article.doll .breadcrumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+article.doll .description {
+  font-size: 1.1em;
+  line-height: 1.25;
+  text-align: justify;
+  margin: 0 2vw;
+  padding: .5em 1.5rem;
+  /* border: 1px solid blue; */
 }
 
-.boutonSuppr img
-{
-	transition: 0.75s;
+article.doll > footer {
+  margin: 10vh 0 3vh;
 }
-
-.boutonSuppr:hover img
-{
-	transform: scale(1.5);
+article.doll > footer a {
+  display: inline-block;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  background-color: #f27120; /* orange */
+  color: #fff;
+  border-radius: .25em;
+  font-weight: bold;
+  box-shadow: .1em .1em .2em hsl(0, 0%, 0%, .25);
 }
-
-.boutonSuppr
-{
-	padding: 10px;
-	padding-bottom: 10px;
-	border-radius: 17px;
-	border-color: #012765;
-	color: #012765;
-	border: 2px solid;
-	background-color: rgba(207, 222, 0, 0.8);
-	font-family: "Guy", sans-serif;
-	cursor: pointer;
-	font-size: 1vw;
-}
-
-.right
-{
-	float: right;
-	display: inline-block;
-	font-size: 30px;
-}
-
-.left
-{
-	float: left;
-	display: inline-block;
-	font-size: 30px;
-}
-
-.center
-{
-	font-size: 30px;
-}
-
-.textInput
-{
-	color: #012765;
-	font-size: 25px;
-	font-weight: bold;
-	border: 2px solid #012765;
-	border-radius: 25px;
-	padding-left: 10px;
-	width: 80%;
-	margin-bottom: 20px;
-	font-family: "Verdana", "Genava", sans-serif;
-	height: 40px;
-}
-
-article.doll
-{
-	border: 5px solid #012765;
-	border-radius: 25px;
-	background-color: rgba(207, 222, 0, 0.5);
-	display: block;
-}
-
-article.doll img
-{
-	border: 3px solid #012765;
-	margin: 25px;
-	border-radius: 15px;
-}
-
-article.doll > header h3
-{
-	display: inline-block;
-	color: #012765;
-	font-family: "Guy", sans-serif;
-	font-size: 25px;
-}
-
-article.doll .description
-{
-	background-color: rgba(207, 222, 0, 0.8);
-	border-radius: 25px;
-	font-family: "Verdana", "Genava", sans-serif;
-	text-decoration: none;
-	font-size: 25px;
-	padding:18px;
-	text-align: center;
-}
-
-article.doll > header h2
-{
-	display: inline-block;
-	padding: 20px;
-	border-radius: 25px;
-  font-size: 30px;
-}
-
-.invisible
-{
-	background-color: transparent;
-	padding: 0px;
-	border-color: transparent;
-}
-
-/* ID */
-
-#ajout
-{
-	display: inline-block;
-	margin-left: 20%;
-	margin-right: 20%;
-	padding: 15px;
-	border-radius: 5px;
-	position: relative;
-	background-color: transparent;
-	font-size: 25px;
-}
-
-#ajoutpop2
-{
-	display: inline-block;
-	padding: 20px;
-	border-radius: 25px;
-	background-color: rgba(207, 222, 0, 0.8);
-	font-family: 'Guy', sans-serif;
-	font-size: 25px;
-	color: #012765;
-	border: 2px solid #012765;
-}
-
-#red
-{
-	color: red;
-	font-size:22px;
-	background-color: transparent;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-#entre
-{
-	display: inline-block;
-}
-
-#suppr
-{
-	border: 0px;
-	background-color: #007cec;
-	color: #012765;
-	text-decoration: none;
-	padding: 15px;
-	margin: 0px;
-	display: flex;
-	position: relative;
-	text-align: justify;
-}
-
-#tdsuppr
-{
-	padding: 0px;
-}
-
-#deja
-{
-	display: block;
-	background-color: transparent;
-	border-width: 5px;
-}
-
-/* MEDIA QUERIES */
-
-@media screen and (max-width: 900px)
-{
-
-	.left
-	{
-		float: none;
-		margin: auto;
-		width: 80%;
-	}
-
-	.right
-	{
-		float: none;
-		margin: auto;
-		width: 80%;
-
-	}
-
-	#suppr
-	{
-	border: 0px;
-	background-color: #007cec;
-	color: #012765;
-	text-decoration: none;
-	padding: 0px;
-	margin: 0px;
-	display: flex;
-	position: relative;
-	}
-
-	.textInput
-	{
-		margin: 15px;
-	}
-
-	.boutonSuppr
-	{
-		font-size: 1.8vw;
-	}
-}
-
-@media screen and (max-width: 1010px)
-{
-	.left
-	{
-		float: none;
-		margin: auto;
-		width: 80%;
-	}
-
-	.right
-	{
-		float: none;
-		margin: auto;
-		width: 80%;
-
-	}
-
+article.doll > footer a:hover {
+  background-color: #512c1d;
 }
