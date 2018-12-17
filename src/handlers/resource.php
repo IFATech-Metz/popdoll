@@ -25,4 +25,4 @@
     }
 
     // Load Bottom of Page
-    require_once('../templates/html_header.html');
+    require_once('../templates/html_footer.html');
