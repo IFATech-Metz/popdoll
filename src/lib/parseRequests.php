@@ -26,7 +26,10 @@ switch ($req['method']) {
   case 'POST':
   case 'PUT':
   case 'PATCH':
-    $req['query'] = $_POST;
+    $query = json_decode(file_get_contents("php://input"));
+    foreach ($query as $key => $value) {
+      $req['query'][$key] = $value;
+    }
     break;
 }
 
