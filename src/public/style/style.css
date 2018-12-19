@@ -96,6 +96,11 @@ main {
   text-align: center;
 }
 
+article.collection .empty {
+  font-size: 2em;
+  margin: calc(30vh - .5em) 0 10vh;
+  color: #93b7bb;
+}
 article.collection > header {
   display: none;
 }
@@ -115,6 +120,62 @@ article.collection #tools label {
   display: inline-block;
   margin-right: .25em;
 }
+
+/* Buttons */
+article.collection > footer a,
+article.doll > footer a,
+article.doll .breadcrumb a {
+  position: absolute;
+  z-index: 10;
+  display: block;
+  font-size: 2rem;
+  top: calc(12.5vh - 1em);
+  right: 6vw;
+  background-color:  #f27120; /* orange */
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 1.75em;
+  padding: .4em;
+  box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  outline: none;
+  transition: background-color .25s;
+}
+article.doll .breadcrumb a {
+  right: inherit;
+  left: 6vw;
+  text-decoration: none;
+  top: calc(6vh - 1em);
+}
+article.doll > footer a {
+  background-color: #87b7bb;
+  top: calc(6vh - .9em);
+}
+article.collection > footer a:hover,
+article.doll .breadcrumb a:hover {
+  background-color: #512c1d;
+}
+article.doll > footer a:hover {
+  background-color: #2eeded;
+}
+article.collection > footer a span,
+article.doll > footer a span,
+article.doll .breadcrumb a span {
+  display: none;
+}
+article.collection > footer a::before {
+  content: '\002b';
+}
+article.doll > footer a::before {
+  content: '\2212';
+}
+article.doll .breadcrumb a::before {
+  content: '\21E0';
+}
+
 
 #collection {
   width: 100%;
@@ -139,7 +200,6 @@ article.collection #tools label {
   box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
 }
 #collection.list thead th {
-  padding: .5em;
   vertical-align: middle;
   font-size: .8em;
   text-align: left;
@@ -321,33 +381,18 @@ article.doll h3::after {
 }
 
 
-article.doll .breadcrumb {
-  position: absolute;
-  top: 0;
-  left: 0;
+article.doll .breadcrumb,
+article.doll .breadcrumb li {
+  display: inline-block;
 }
+
 article.doll .description {
   font-size: 1.1em;
   line-height: 1.25;
   text-align: justify;
   margin: 0 2vw;
   padding: .5em 1.5rem;
-  /* border: 1px solid blue; */
 }
-
-article.doll > footer {
-  margin: 10vh 0 3vh;
-}
-article.doll > footer a {
-  display: inline-block;
-  padding: 1em 1.5em;
-  text-decoration: none;
-  background-color: #f27120; /* orange */
-  color: #fff;
-  border-radius: .25em;
-  font-weight: bold;
-  box-shadow: .1em .1em .2em hsl(0, 0%, 0%, .25);
-}
-article.doll > footer a:hover {
-  background-color: #512c1d;
+article.doll .description:hover {
+  background-color: #dbdfe4;
 }

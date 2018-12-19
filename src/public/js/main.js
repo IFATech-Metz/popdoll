@@ -29,7 +29,7 @@ if (table) {
     })
   }
   table.className = view
-  
+
   let tools = document.createElement('div')
   tools.id = 'tools'
   let ts = '<form method="get" class="order"><label>Trier par</label><select name="order[by]"><option value="title"'
@@ -69,12 +69,26 @@ if (table) {
 let doll = document.querySelector('article.doll')
 if (doll) {
   let foot = document.createElement('footer')
-  foot.innerHTML = '<a href="#delete">Supprimer</a>'
+  let remove = document.createElement('a')
+  remove.href = '#delete'
+  remove.innerHTML = '<span>Supprimer</span>'
+  foot.appendChild(remove)
   doll.appendChild(foot)
-  doll.querySelectorAll('[contenteditable]').forEach(param => {
-    // console.log('param', param)
-    param.addEventListener('input', ev => {
-      console.log('ev', ev, this.innerText)
+  remove.addEventListener('click', ev => {
+    ev.preventDefault()
+    fetch('', {
+      method: 'DELETE'
+    })
+  })
+  doll.querySelector('p.description').addEventListener('input', ev => {
+    fetch('', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        description: ev.target.innerHTML.replace(/<br>/ig, '\n')
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
   })
 }

@@ -1,3 +1,10 @@
+article.collection > footer a,
+article.doll > footer a {
+  right: 16vw;
+}
+article.doll .breadcrumb a {
+  left: 16vw;
+}
 article.collection #tools {
   margin: 0 10vw;
   box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
