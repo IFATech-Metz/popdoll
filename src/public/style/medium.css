@@ -1,6 +1,5 @@
 #collection.list thead tr,
 #collection.list tbody tr {
-  display: grid;
   grid-template-columns: auto auto auto 6em;
   grid-template-rows: auto auto;
 }
