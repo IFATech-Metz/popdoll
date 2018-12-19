@@ -9,6 +9,12 @@ class Doll {
 
   /* --- Static Functions --- */
 
+  public static function add ($data) {
+    if (!$data['handle'] OR file_exists(self::DATA . $handle . '.yml')) return false;
+    if (false === ($doll = new Doll($data))) return false;
+    return $doll->save();
+  }
+
   public static function find ($query) {
     $url = 'https://www.funko.com/ui-api/search?text=' . $query;
     return json_decode(file_get_contents($url))->products;
@@ -54,7 +60,7 @@ class Doll {
     return $dolls;
   }
 
-  static function load ($handle) {
+  public static function load ($handle) {
     if (!file_exists(self::DATA . $handle . '.yml')) return false;
     return new Doll(yaml_parse_file(self::DATA . $handle . '.yml'));
   }
@@ -72,7 +78,12 @@ class Doll {
 
   /* --- Object Functions --- */
 
-  public function import () {
+  public function delete () {
+    if (!file_exists(self::DATA.$this->handle.'.yml')) return false;
+    return unlink(self::DATA.$this->handle.'.yml');
+  }
+
+  private function import () {
     if (!$this->handle) return false;
     $this->funkoData = json_decode(file_get_contents('https://www.funko.com/ui-api/search/' . $this->handle))->products[0];
     if (preg_match('/^Pop!?(.*)\:([^-]+)(?:-(.+))?$/i',$this->funkoData->title, $ex)) {
@@ -97,6 +108,22 @@ class Doll {
     $this->description = $data['description'];
     $this->handle = $data['handle'];
     return $this;
+  }
+
+  private function save () {
+    if (!$this->handle) return false;
+    if (!file_exists(self::DATA)) mkdir(self::DATA);
+    $data = [
+      'handle' => $this->handle,
+      'description' => $this->description
+    ];
+    yaml_emit_file(self::DATA . $this->handle . '.yml', $data, YAML_UTF8_ENCODING, YAML_CRLN_BREAK);
+    return $this;
+  }
+
+  public function setDescription ($description) {
+    $this->description = $description;
+    return $this->save();
   }
 
 }
