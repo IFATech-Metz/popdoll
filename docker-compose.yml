@@ -1,0 +1,19 @@
+version: '3.4'
+
+volumes:
+  data: {}
+
+services:
+  web:
+    image: popdolls:latest
+    volumes:
+      - data:/var/www/html/data:rw
+    ports:
+      - "8080:80"
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
