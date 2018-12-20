@@ -100,7 +100,10 @@ class Doll {
   }
 
   public function render ($full = false) {
-    if ($full) require('../templates/doll.html');
+    if ($full) {
+      $this->description = nl2br($this->description);
+      require('../templates/doll.html');
+    }
     else require('../templates/doll_list.html');
   }
 
