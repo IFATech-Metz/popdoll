@@ -2,7 +2,7 @@ article.collection > footer a,
 article.doll > footer a {
   right: 16vw;
 }
-article.doll .breadcrumb a {
+.breadcrumb a {
   left: 16vw;
 }
 article.collection #tools {
@@ -10,9 +10,10 @@ article.collection #tools {
   box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
   border-radius: 0 0 .25em .25em;
 }
+#create,
 #collection.list {
   margin: 2vh 10vw;
-  width: calc(100% - 20vw);
+  width: 80vw;
 }
 #collection.list thead tr,
 #collection.list tbody tr {
@@ -26,5 +27,47 @@ article.collection #tools {
 #collection.list .doll .category a,
 #collection.list .doll .collection a,
 #collection.list .doll .description a {
+  padding: .5rem calc(1vw + .25em);
+}
+#collection.list thead {
+  display: table-header-group;
+}
+#collection.list thead tr {
+  background-color: #007cec;
+  color: #fff;
+  font-variant: small-caps;
+  box-shadow: .1em .1em .2em hsla(0, 0%, 0%, .5);
+}
+#collection.list thead th {
   padding: .5rem;
+  vertical-align: middle;
+  font-size: .85em;
+  text-align: left;
+}
+#create input[type="search"] {
+  width: 80vw;
+}
+
+/* --- Very Large --- */
+@media screen an (min-width: 2048px) {
+  
+  article.collection > footer a,
+  article.doll > footer a {
+    right: 21vw;
+  }
+  .breadcrumb a {
+    left: 21vw;
+  }
+  article.collection #tools {
+    margin: 0 15vw;
+  }
+  #create,
+  #collection.list {
+    margin: 2vh 15vw;
+    width: 70vw;
+  }
+  #create input[type="search"] {
+    width: 70vw;
+  }
+
 }

@@ -1,9 +1,18 @@
-#collection.list thead tr,
+article.collection #tools {
+  justify-content: space-between;
+}
+article.collection #tools label {
+  display: inline-block;
+  margin-right: .25em;
+}
+article.collection #tools label::after {
+  content: ' :';
+}
 #collection.list tbody tr {
   grid-template-columns: auto auto auto 6em;
   grid-template-rows: auto auto;
 }
-#collection.list .title{
+#collection.list .title {
   grid-column: 1;
   grid-row: 1;
 }
@@ -11,7 +20,6 @@
 #collection.list .collection {
   grid-row: 1;
   text-align: left;
-  /* white-space: nowrap; */
 }
 #collection.list .description {
   grid-column: 1 / 4;
