@@ -1,19 +1,45 @@
+## Indique la version de Compose utilisé
 version: '3.4'
 
+## Configuration des Interfaces Réseaux
+networks:
+  ## Ajout de l'interface réseaux `web`
+  web:
+    ## Utiliser réseau externe `web` commun avec les reverses-proxy
+    external:
+      name: web # À modifier selon votre stack
+
+## Configuration des Volumes
 volumes:
+  ## Ajouter un Volume `data` sans configuration particulière (de type local)
   data: {}
 
+## Configuration des Services
 services:
+  ## Créer un service `web`…
   web:
+    ##  …utilisant l'image `popdolls:latest`
     image: popdolls:latest
+    ## …avec le Volume `data` monté dans le répertoire `/var/www/html/data`
     volumes:
-      - data:/var/www/html/data:rw
+      - data:/var/www/html/data
+    ## …routant le port externe `8080` vers le port `80` interne du container (écouté par Apache2)
     ports:
       - "8080:80"
+    ## …raccordé au réseau `web`
+    networks:
+      - web
+    ## …et ayant des paramètres spécifiques au mode Swarm
     deploy:
+      ## Déploi le Service en mode `Replicated`…
       mode: replicated
+      ## …avec une seule copie par défaut (peut être modulé par la suite)
       replicas: 1
+      ## Quand le Service est mis à jour, redémarrer les Containers…
       update_config:
+        ## …un par un
         parallelism: 1
+        ## …avec un delay de 5s entre la mise à jour de chaque Container du Service
         delay: 5s
+        ## …en démarrant les nouveaux Containers avant d'arrêter ceux en cours
         order: start-first
