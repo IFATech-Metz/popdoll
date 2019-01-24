@@ -15,9 +15,6 @@ RUN pecl install yaml && a2enmod rewrite && a2enmod headers && docker-php-ext-en
 ## Remplacer la configuration par défaut d'Apache2 du container
 COPY /Docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
-## Remplacer la configuration par défaut d'Apache2 du container
-COPY /Docker/apache.conf /etc/apache2/sites-available/000-default.conf
-
 ## Copier le script de démarrage
 COPY /Docker/start.sh /var/www/html/start.sh
 
